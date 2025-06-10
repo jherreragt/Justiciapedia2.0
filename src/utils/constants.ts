@@ -1,0 +1,102 @@
+import { NavItem, FooterSection, SocialLink } from '../types';
+import { Building2, Users, UserCircle, Network, FileText, HandHelping, InfoIcon, Home, Book } from 'lucide-react';
+
+export const SITE_NAME = 'JusticiapedIA';
+export const SITE_DESCRIPTION = 'Transparencia en los procesos de designación de autoridades judiciales en Guatemala';
+
+export const NAV_ITEMS: NavItem[] = [
+  {
+    title: 'Inicio',
+    href: '/',
+  },
+  {
+    title: 'Instituciones de Justicia',
+    href: '/instituciones',
+  },
+  {
+    title: 'Comisiones de Postulación',
+    href: '/comisiones',
+  },
+  {
+    title: 'Perfiles de Candidatos',
+    href: '/candidatos',
+  },
+  {
+    title: 'Mapas de Poder',
+    href: '/mapas-poder',
+  },
+  {
+    title: 'Notas de Interés',
+    href: '/noticias',
+  },
+  {
+    title: 'Participa',
+    href: '/participa',
+  },
+  {
+    title: 'Documentación',
+    href: '/documentacion',
+  },
+  {
+    title: 'Acerca de',
+    href: '/acerca',
+  },
+];
+
+export const NAV_ICONS = {
+  'Inicio': Home,
+  'Instituciones de Justicia': Building2,
+  'Comisiones de Postulación': Users,
+  'Perfiles de Candidatos': UserCircle,
+  'Mapas de Poder': Network,
+  'Notas de Interés': FileText,
+  'Participa': HandHelping,
+  'Documentación': Book,
+  'Acerca de': InfoIcon,
+};
+
+export const FOOTER_SECTIONS: FooterSection[] = [
+  {
+    title: 'Sobre JusticiapedIA',
+    links: [
+      { title: 'Misión y Visión', href: '/acerca#mision' },
+      { title: 'Nuestro Equipo', href: '/acerca#equipo' },
+      { title: 'Colaboradores', href: '/acerca#colaboradores' },
+      { title: 'Metodología', href: '/acerca#metodologia' },
+    ],
+  },
+  {
+    title: 'Recursos',
+    links: [
+      { title: 'Datos Abiertos', href: '/recursos/datos' },
+      { title: 'Informes', href: '/recursos/informes' },
+      { title: 'Biblioteca Legal', href: '/recursos/biblioteca' },
+      { title: 'Documentación', href: '/documentacion' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { title: 'Términos y Condiciones', href: '/legal/terminos' },
+      { title: 'Política de Privacidad', href: '/legal/privacidad' },
+      { title: 'Política de Cookies', href: '/legal/cookies' },
+    ],
+  },
+];
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  { platform: 'Facebook', href: 'https://facebook.com/justiciapediaGT', icon: 'facebook' },
+  { platform: 'Twitter', href: 'https://twitter.com/justiciapediaGT', icon: 'twitter' },
+  { platform: 'Instagram', href: 'https://instagram.com/justiciapediaGT', icon: 'instagram' },
+  { platform: 'LinkedIn', href: 'https://linkedin.com/company/justiciapediaGT', icon: 'linkedin' },
+  { platform: 'YouTube', href: 'https://youtube.com/@justiciapediaGT', icon: 'youtube' },
+];
+
+export const COLORS = {
+  primary: '#2563eb', // Institutional blue
+  secondary: '#1e40af',
+  accent: '#3b82f6',
+  dark: '#1f2937',
+  light: '#f9fafb',
+  gray: '#6b7280',
+};
