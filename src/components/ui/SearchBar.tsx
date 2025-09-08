@@ -53,14 +53,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
           autoFocus={autoFocus}
           className={`w-full h-12 pl-12 pr-12 text-sm bg-white border-2 rounded-xl transition-all duration-200 ${
             isFocused
-              ? 'border-primary-500 ring-4 ring-primary-100 shadow-medium'
-              : 'border-neutral-300 hover:border-neutral-400 shadow-soft'
-          } focus:outline-none placeholder-neutral-500`}
+              ? 'border-slate-500 ring-4 ring-slate-100 shadow-lg'
+              : 'border-slate-300 hover:border-slate-400 shadow-md'
+          } focus:outline-none placeholder-slate-500 font-medium`}
         />
         
         {/* Search Icon */}
         <div className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-200 ${
-          isFocused ? 'text-primary-600' : 'text-neutral-400'
+          isFocused ? 'text-slate-600' : 'text-slate-400'
         }`}>
           <Search size={18} />
         </div>
@@ -70,7 +70,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-12 top-1/2 transform -translate-y-1/2 p-1 text-neutral-400 hover:text-neutral-600 transition-colors duration-200 rounded-full hover:bg-neutral-100"
+            className="absolute right-12 top-1/2 transform -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 transition-colors duration-200 rounded-full hover:bg-slate-100"
             aria-label="Limpiar búsqueda"
           >
             <X size={16} />
@@ -82,7 +82,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <button
             type="button"
             onClick={onFilterClick}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 text-neutral-400 hover:text-primary-600 transition-colors duration-200 rounded-full hover:bg-neutral-100"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 transition-colors duration-200 rounded-full hover:bg-slate-100"
             aria-label="Filtros"
           >
             <Filter size={16} />
@@ -101,8 +101,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       {/* Search Suggestions (placeholder for future implementation) */}
       {isFocused && query.length > 2 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-neutral-200 rounded-xl shadow-strong z-50 max-h-64 overflow-y-auto animate-slideDown">
-          <div className="p-4 text-sm text-neutral-500 text-center">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-slate-200 rounded-xl shadow-2xl z-50 max-h-64 overflow-y-auto animate-slideDown">
+          <div className="p-4 text-sm text-slate-500 text-center font-medium">
             Presiona Enter para buscar "{query}"
           </div>
         </div>

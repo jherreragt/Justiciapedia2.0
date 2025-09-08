@@ -119,22 +119,22 @@ const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-medium py-2'
-          : 'bg-white/98 backdrop-blur-sm shadow-soft py-3'
+          ? 'bg-white/98 backdrop-blur-lg shadow-lg py-2 border-b border-slate-200'
+          : 'bg-white shadow-md py-3 border-b border-slate-100'
       }`}
     >
       <Container>
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center group">
-            <div className="w-11 h-11 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center mr-3 group-hover:shadow-medium transition-all duration-300 group-hover:scale-105">
+            <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center mr-3 group-hover:shadow-lg transition-all duration-300 group-hover:scale-105 border border-slate-300">
               <Scale size={24} className="text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary-800 group-hover:text-primary-900 transition-colors leading-tight">
+              <span className="text-xl font-bold text-slate-800 group-hover:text-slate-900 transition-colors leading-tight">
                 {SITE_NAME}
               </span>
-              <span className="text-xs text-neutral-600 leading-none hidden sm:block">
+              <span className="text-xs text-slate-600 leading-none hidden sm:block font-medium">
                 Transparencia Judicial
               </span>
             </div>
@@ -154,14 +154,14 @@ const Navbar: React.FC = () => {
                       onClick={() => handleDropdownToggle(item.title)}
                       className={`flex items-center px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                         isActive || activeDropdown === item.title
-                          ? 'bg-primary-100 text-primary-800 shadow-soft'
-                          : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-700'
+                          ? 'bg-slate-100 text-slate-800 shadow-md border border-slate-200'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-slate-800 hover:shadow-sm'
                       }`}
                     >
                       {Icon && <Icon size={16} className="mr-2" />}
                       {item.title}
                       <ChevronDown 
-                        size={16} 
+                        size={18} 
                         className={`ml-1 transition-transform duration-200 ${
                           activeDropdown === item.title ? 'rotate-180' : ''
                         }`} 
@@ -172,8 +172,8 @@ const Navbar: React.FC = () => {
                       href={item.href}
                       className={`flex items-center px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                         isActive
-                          ? 'bg-primary-100 text-primary-800 shadow-soft'
-                          : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-700'
+                          ? 'bg-slate-100 text-slate-800 shadow-md border border-slate-200'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-slate-800 hover:shadow-sm'
                       }`}
                     >
                       {Icon && <Icon size={16} className="mr-2" />}
@@ -183,22 +183,22 @@ const Navbar: React.FC = () => {
 
                   {/* Dropdown Menu */}
                   {hasChildren && activeDropdown === item.title && (
-                    <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-strong border border-neutral-200 py-2 z-50 animate-slideDown">
+                    <div className="absolute top-full left-0 mt-3 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 py-3 z-50 animate-slideDown">
                       {item.children!.map((child) => (
                         <a
                           key={child.href}
                           href={child.href}
-                          className={`flex items-center px-4 py-3 text-sm transition-colors ${
+                          className={`flex items-center px-5 py-3 text-sm font-medium transition-colors ${
                             currentPath.startsWith(child.href)
-                              ? 'bg-primary-50 text-primary-800 border-r-3 border-primary-600 font-medium'
-                              : 'text-neutral-700 hover:bg-neutral-50 hover:text-primary-700'
+                              ? 'bg-slate-50 text-slate-800 border-r-4 border-slate-600 font-semibold'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-800'
                           }`}
                           onClick={() => setActiveDropdown(null)}
                         >
-                          <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 flex-shrink-0"></div>
+                          <div className="w-2.5 h-2.5 bg-slate-400 rounded-full mr-3 flex-shrink-0"></div>
                           <div>
-                            <div className="font-medium">{child.title}</div>
-                            <div className="text-xs text-neutral-500 mt-0.5">
+                            <div className="font-semibold text-slate-800">{child.title}</div>
+                            <div className="text-xs text-slate-500 mt-1">
                               {child.title === 'Instituciones de Justicia' && 'Explora las instituciones del sistema'}
                               {child.title === 'Comisiones de Postulación' && 'Procesos de selección activos'}
                               {child.title === 'Perfiles de Candidatos' && 'Candidatos a puestos judiciales'}
@@ -223,8 +223,8 @@ const Navbar: React.FC = () => {
             <button
               className={`p-2.5 rounded-xl transition-all duration-200 ${
                 isSearchOpen
-                  ? 'bg-primary-100 text-primary-700 shadow-soft'
-                  : 'text-neutral-700 hover:bg-neutral-100 hover:text-primary-700'
+                  ? 'bg-slate-100 text-slate-700 shadow-md border border-slate-200'
+                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-800 hover:shadow-sm'
               }`}
               onClick={toggleSearch}
               aria-label="Buscar"
@@ -234,8 +234,8 @@ const Navbar: React.FC = () => {
             <button
               className={`p-2.5 rounded-xl transition-all duration-200 lg:hidden ${
                 isMobileMenuOpen
-                  ? 'bg-primary-100 text-primary-700 shadow-soft'
-                  : 'text-neutral-700 hover:bg-neutral-100 hover:text-primary-700'
+                  ? 'bg-slate-100 text-slate-700 shadow-md border border-slate-200'
+                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-800 hover:shadow-sm'
               }`}
               onClick={toggleMobileMenu}
               aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
@@ -247,7 +247,7 @@ const Navbar: React.FC = () => {
 
         {/* Search Bar */}
         {isSearchOpen && (
-          <div className="mt-4 pb-4 animate-slideDown">
+          <div className="mt-5 pb-5 animate-slideDown border-t border-slate-100 pt-4">
             <SearchBar
               placeholder="Buscar candidatos, instituciones, noticias..."
               onSearch={(query) => {
@@ -264,7 +264,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[73px] bg-white z-40 overflow-y-auto animate-slideDown">
+        <div className="lg:hidden fixed inset-0 top-[85px] bg-white z-40 overflow-y-auto animate-slideDown shadow-2xl">
           <Container>
             <div className="py-6 space-y-1">
               {enhancedNavItems.map((item) => {
@@ -279,8 +279,8 @@ const Navbar: React.FC = () => {
                         onClick={() => handleDropdownToggle(item.title)}
                         className={`w-full flex items-center justify-between py-3 px-4 rounded-xl text-base font-medium transition-all duration-200 ${
                           isActive || activeDropdown === item.title
-                            ? 'bg-primary-100 text-primary-800 shadow-soft'
-                            : 'text-neutral-900 hover:bg-neutral-50'
+                            ? 'bg-slate-100 text-slate-800 shadow-md border border-slate-200'
+                            : 'text-slate-800 hover:bg-slate-50'
                         }`}
                       >
                         <div className="flex items-center">
@@ -299,8 +299,8 @@ const Navbar: React.FC = () => {
                         href={item.href}
                         className={`flex items-center py-3 px-4 rounded-xl text-base font-medium transition-all duration-200 ${
                           isActive
-                            ? 'bg-primary-100 text-primary-800 shadow-soft'
-                            : 'text-neutral-900 hover:bg-neutral-50'
+                            ? 'bg-slate-100 text-slate-800 shadow-md border border-slate-200'
+                            : 'text-slate-800 hover:bg-slate-50'
                         }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -318,12 +318,12 @@ const Navbar: React.FC = () => {
                             href={child.href}
                             className={`flex items-center py-2.5 px-4 rounded-lg text-sm transition-colors ${
                               currentPath.startsWith(child.href)
-                                ? 'bg-primary-50 text-primary-800 font-medium'
-                                : 'text-neutral-600 hover:bg-neutral-50 hover:text-primary-700'
+                                ? 'bg-slate-50 text-slate-800 font-semibold border-l-4 border-slate-600'
+                                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-800'
                             }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
-                            <div className="w-1.5 h-1.5 bg-primary-400 rounded-full mr-3 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-slate-400 rounded-full mr-3 flex-shrink-0"></div>
                             {child.title}
                           </a>
                         ))}
@@ -334,7 +334,7 @@ const Navbar: React.FC = () => {
               })}
 
               {/* Mobile Search */}
-              <div className="pt-4 border-t border-neutral-200 mt-4">
+              <div className="pt-6 border-t border-slate-200 mt-6">
                 <SearchBar
                   placeholder="Buscar en JusticiapedIA..."
                   onSearch={(query) => {
@@ -349,14 +349,14 @@ const Navbar: React.FC = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="pt-4 border-t border-neutral-200 mt-4">
-                <h3 className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-3 px-4">
+              <div className="pt-6 border-t border-slate-200 mt-6">
+                <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wider mb-4 px-5">
                   Acciones Rápidas
                 </h3>
                 <div className="space-y-1">
                   <a
                     href="/candidatos"
-                    className="flex items-center py-2.5 px-4 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-primary-700 rounded-lg transition-colors"
+                    className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <UserCircle size={16} className="mr-3" />
@@ -364,7 +364,7 @@ const Navbar: React.FC = () => {
                   </a>
                   <a
                     href="/instituciones"
-                    className="flex items-center py-2.5 px-4 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-primary-700 rounded-lg transition-colors"
+                    className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Building2 size={16} className="mr-3" />
@@ -372,7 +372,7 @@ const Navbar: React.FC = () => {
                   </a>
                   <a
                     href="/noticias"
-                    className="flex items-center py-2.5 px-4 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-primary-700 rounded-lg transition-colors"
+                    className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <FileText size={16} className="mr-3" />

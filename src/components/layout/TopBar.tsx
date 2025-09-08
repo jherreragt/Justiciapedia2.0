@@ -22,13 +22,13 @@ const TopBar: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary-900 text-white py-2 text-sm border-b border-primary-800">
+    <div className="bg-slate-900 text-white py-3 text-sm border-b border-slate-700 relative z-50">
       <Container>
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <a 
               href="mailto:contacto@justiciapedia.org.gt" 
-              className="flex items-center hover:text-primary-200 transition-colors duration-200 group"
+              className="flex items-center hover:text-blue-300 transition-colors duration-200 group"
             >
               <Mail size={14} className="mr-2 group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline">contacto@justiciapedia.org.gt</span>
@@ -36,7 +36,7 @@ const TopBar: React.FC = () => {
             </a>
             <a 
               href="tel:+50222334455" 
-              className="flex items-center hover:text-primary-200 transition-colors duration-200 group"
+              className="flex items-center hover:text-blue-300 transition-colors duration-200 group"
             >
               <Phone size={14} className="mr-2 group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline">+502 2233-4455</span>
@@ -45,7 +45,7 @@ const TopBar: React.FC = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <span className="text-primary-300 text-xs mr-2 hidden md:inline">Síguenos:</span>
+            <span className="text-slate-300 text-xs mr-2 hidden md:inline font-medium">Síguenos:</span>
             <div className="flex items-center space-x-3">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = getSocialIcon(social.platform);
@@ -53,7 +53,7 @@ const TopBar: React.FC = () => {
                   <a
                     key={social.platform}
                     href={social.href}
-                    className="hover:text-primary-200 transition-all duration-200 transform hover:scale-110 p-1 rounded"
+                    className="hover:text-blue-300 transition-all duration-200 transform hover:scale-110 p-1.5 rounded-md hover:bg-slate-800"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Seguir en ${social.platform}`}
