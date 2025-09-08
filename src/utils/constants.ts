@@ -30,6 +30,10 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/noticias',
   },
   {
+    title: 'Dashboard',
+    href: '/dashboard',
+  },
+  {
     title: 'Documentación',
     href: '/documentacion',
   },
