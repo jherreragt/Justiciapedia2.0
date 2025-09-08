@@ -22,16 +22,8 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/candidatos',
   },
   {
-    title: 'Mapas de Poder',
-    href: '/mapas-poder',
-  },
-  {
     title: 'Notas de Interés',
     href: '/noticias',
-  },
-  {
-    title: 'Dashboard',
-    href: '/dashboard',
   },
   {
     title: 'Documentación',

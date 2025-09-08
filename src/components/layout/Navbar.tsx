@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
   };
 
   // Enhanced navigation structure with submenus
-  const enhancedNavItems: NavItem[] = [
+  const getNavItems = (): NavItem[] => [
     {
       title: 'Inicio',
       href: '/',
@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
       href: '#',
       icon: Network,
       children: [
-        { title: 'Mapas de Poder', href: '/mapas-poder' },
+        ...(isAuthenticated ? [{ title: 'Mapas de Poder', href: '/mapas-poder' }] : []),
         { title: 'Notas de Interés', href: '/noticias' },
       ],
     },
@@ -108,6 +108,8 @@ const Navbar: React.FC = () => {
       ],
     },
   ];
+
+  const enhancedNavItems = getNavItems();
 
   const currentPath = window.location.pathname;
 

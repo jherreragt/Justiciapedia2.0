@@ -17,10 +17,10 @@ const FeatureBlocks: React.FC = () => {
       link: '/comisiones',
     },
     {
-      icon: Network,
-      title: 'Descubre los Vínculos',
-      description: 'Analiza las relaciones y conexiones en el sistema de justicia.',
-      link: '/mapas-poder',
+      icon: FileText,
+      title: 'Notas de Interés',
+      description: 'Lee las últimas noticias y análisis sobre el sistema judicial.',
+      link: '/noticias',
     },
   ];
 
