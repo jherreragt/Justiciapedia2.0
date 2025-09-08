@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, Network, FileText, Book, InfoIcon, Scale, LogIn } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, Network, FileText, Book, InfoIcon, Scale, LogIn, HandHelping } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import UserMenu from '../auth/UserMenu';
 import LoginModal from '../auth/LoginModal';
 import { NAV_ITEMS, SITE_NAME } from '../../utils/constants';
 import Container from '../ui/Container';
 import SearchBar from '../ui/SearchBar';
+import Button from '../ui/Button';
 
 interface NavItem {
   title: string;
