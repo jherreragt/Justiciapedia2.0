@@ -13,6 +13,12 @@ import News from './pages/News';
 import NewsArticle from './pages/NewsArticle';
 import SearchPage from './pages/Search';
 import NotFound from './pages/NotFound';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Cookies from './pages/Cookies';
+import Resources from './pages/Resources';
 
 function App() {
   // Define enhanced color palette for justice theme
@@ -74,6 +80,20 @@ function App() {
       return <News />;
     case '/buscar':
       return <SearchPage />;
+    case '/acerca':
+      return <About />;
+    case '/contacto':
+      return <Contact />;
+    case '/legal/privacidad':
+      return <Privacy />;
+    case '/legal/terminos':
+      return <Terms />;
+    case '/legal/cookies':
+      return <Cookies />;
+    case '/recursos/datos':
+    case '/recursos/informes':
+    case '/recursos/biblioteca':
+      return <Resources />;
     default:
       // Show 404 page for any unmatched route
       return <NotFound />;

@@ -59,10 +59,10 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Sobre JusticiapedIA',
     links: [
-      { title: 'Misión y Visión', href: '/acerca#mision' },
+      { title: 'Acerca de Nosotros', href: '/acerca' },
+      { title: 'Contacto', href: '/contacto' },
       { title: 'Nuestro Equipo', href: '/acerca#equipo' },
       { title: 'Colaboradores', href: '/acerca#colaboradores' },
-      { title: 'Metodología', href: '/acerca#metodologia' },
     ],
   },
   {
@@ -80,6 +80,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
       { title: 'Términos y Condiciones', href: '/legal/terminos' },
       { title: 'Política de Privacidad', href: '/legal/privacidad' },
       { title: 'Política de Cookies', href: '/legal/cookies' },
+      { title: 'Contacto', href: '/contacto' },
     ],
   },
 ];
