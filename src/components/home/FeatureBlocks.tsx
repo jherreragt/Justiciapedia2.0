@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Network, Search } from 'lucide-react';
+import { Users, Network, Search, FileText } from 'lucide-react';
 import Container from '../ui/Container';
 
 const FeatureBlocks: React.FC = () => {
