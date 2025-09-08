@@ -1,4 +1,5 @@
 import React from 'react';
+import { AuthProvider } from './contexts/AuthContext';
 import Home from './pages/Home';
 import Institutions from './pages/Institutions';
 import InstitutionProfile from './pages/InstitutionProfile';
@@ -7,6 +8,7 @@ import CommissionProfile from './pages/CommissionProfile';
 import Candidates from './pages/Candidates';
 import CandidateProfile from './pages/CandidateProfile';
 import PowerMaps from './pages/PowerMaps';
+import Dashboard from './pages/Dashboard';
 import Documentation from './pages/Documentation';
 import News from './pages/News';
 import NewsArticle from './pages/NewsArticle';
@@ -71,6 +73,8 @@ function App() {
       return <Candidates />;
     case '/mapas-poder':
       return <PowerMaps />;
+    case '/dashboard':
+      return <Dashboard />;
     case '/documentacion':
       return <Documentation />;
     case '/noticias':
@@ -97,4 +101,12 @@ function App() {
   }
 }
 
-export default App;
+const AppWithAuth = () => {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+};
+
+export default AppWithAuth;
