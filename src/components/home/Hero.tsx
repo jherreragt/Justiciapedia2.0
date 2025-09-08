@@ -93,9 +93,9 @@ const Hero: React.FC = () => {
               variant="outline"
               size="lg"
               className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold"
-              onClick={() => window.location.href = '/participa'}
+              onClick={() => window.location.href = '/documentacion'}
             >
-              Cómo Participar
+              Más Información
             </Button>
           </div>
 

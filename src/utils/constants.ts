@@ -1,5 +1,5 @@
 import { NavItem, FooterSection, SocialLink } from '../types';
-import { Building2, Users, UserCircle, Network, FileText, HandHelping, InfoIcon, Home, Book } from 'lucide-react';
+import { Building2, Users, UserCircle, Network, FileText, InfoIcon, Home, Book } from 'lucide-react';
 
 export const SITE_NAME = 'JusticiapedIA';
 export const SITE_DESCRIPTION = 'Transparencia en los procesos de designación de autoridades judiciales en Guatemala';
@@ -30,10 +30,6 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/noticias',
   },
   {
-    title: 'Participa',
-    href: '/participa',
-  },
-  {
     title: 'Documentación',
     href: '/documentacion',
   },
@@ -50,7 +46,6 @@ export const NAV_ICONS = {
   'Perfiles de Candidatos': UserCircle,
   'Mapas de Poder': Network,
   'Notas de Interés': FileText,
-  'Participa': HandHelping,
   'Documentación': Book,
   'Acerca de': InfoIcon,
 };

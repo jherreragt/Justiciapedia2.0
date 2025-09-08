@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, Network, FileText, HandHelping, Book, InfoIcon, Scale } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, Network, FileText, Book, InfoIcon, Scale } from 'lucide-react';
 import { NAV_ITEMS, SITE_NAME } from '../../utils/constants';
 import Container from '../ui/Container';
 import SearchBar from '../ui/SearchBar';
@@ -93,11 +93,10 @@ const Navbar: React.FC = () => {
       ],
     },
     {
-      title: 'Participación',
+      title: 'Información',
       href: '#',
-      icon: HandHelping,
+      icon: Book,
       children: [
-        { title: 'Cómo Participar', href: '/participa' },
         { title: 'Documentación', href: '/documentacion' },
         { title: 'Acerca de', href: '/acerca' },
       ],
@@ -204,7 +203,6 @@ const Navbar: React.FC = () => {
                               {child.title === 'Perfiles de Candidatos' && 'Candidatos a puestos judiciales'}
                               {child.title === 'Mapas de Poder' && 'Visualiza conexiones y relaciones'}
                               {child.title === 'Notas de Interés' && 'Noticias y análisis actualizados'}
-                              {child.title === 'Cómo Participar' && 'Contribuye a la transparencia'}
                               {child.title === 'Documentación' && 'Guías y recursos'}
                               {child.title === 'Acerca de' && 'Conoce más sobre nosotros'}
                             </div>

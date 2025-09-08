@@ -7,7 +7,6 @@ import CommissionProfile from './pages/CommissionProfile';
 import Candidates from './pages/Candidates';
 import CandidateProfile from './pages/CandidateProfile';
 import PowerMaps from './pages/PowerMaps';
-import Participate from './pages/Participate';
 import Documentation from './pages/Documentation';
 import News from './pages/News';
 import NewsArticle from './pages/NewsArticle';
@@ -72,8 +71,6 @@ function App() {
       return <Candidates />;
     case '/mapas-poder':
       return <PowerMaps />;
-    case '/participa':
-      return <Participate />;
     case '/documentacion':
       return <Documentation />;
     case '/noticias':
