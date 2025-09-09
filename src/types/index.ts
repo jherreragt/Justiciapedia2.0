@@ -33,6 +33,14 @@ export interface InstitutionData {
   address?: string;
   mission?: string;
   vision?: string;
+  sector?: string;
+  enlaceAccesoInformacion?: string;
+  enlaceGobiernoDigital?: string;
+  enlaceDatosAbiertos?: string;
+  enlaceServicios?: string;
+  enlaceServicios2?: string;
+  fb?: string;
+  tw?: string;
   authorities?: {
     name: string;
     position: string;
