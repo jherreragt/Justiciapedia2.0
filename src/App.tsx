@@ -40,25 +40,41 @@ function App() {
   // Check if we're on an institution profile page
   const institutionMatch = path.match(/^\/instituciones\/([^/]+)$/);
   if (institutionMatch) {
-    return <InstitutionProfile institutionId={institutionMatch[1]} />;
+    return (
+      <AuthProvider>
+        <InstitutionProfile institutionId={institutionMatch[1]} />
+      </AuthProvider>
+    );
   }
 
   // Check if we're on a commission profile page
   const commissionMatch = path.match(/^\/comisiones\/([^/]+)$/);
   if (commissionMatch) {
-    return <CommissionProfile commissionId={commissionMatch[1]} />;
+    return (
+      <AuthProvider>
+        <CommissionProfile commissionId={commissionMatch[1]} />
+      </AuthProvider>
+    );
   }
 
   // Check if we're on a candidate profile page
   const candidateMatch = path.match(/^\/candidatos\/([^/]+)$/);
   if (candidateMatch) {
-    return <CandidateProfile candidateId={candidateMatch[1]} />;
+    return (
+      <AuthProvider>
+        <CandidateProfile candidateId={candidateMatch[1]} />
+      </AuthProvider>
+    );
   }
 
   // Check if we're on a news article page
   const newsMatch = path.match(/^\/noticias\/([^/]+)$/);
   if (newsMatch) {
-    return <NewsArticle articleId={newsMatch[1]} />;
+    return (
+      <AuthProvider>
+        <NewsArticle articleId={newsMatch[1]} />
+      </AuthProvider>
+    );
   }
 
   // Routes
@@ -72,9 +88,17 @@ function App() {
     case '/candidatos':
       return <Candidates />;
     case '/mapas-poder':
-      return <PowerMaps />;
+      return (
+        <AuthProvider>
+          <PowerMaps />
+        </AuthProvider>
+      );
     case '/dashboard':
-      return <Dashboard />;
+      return (
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      );
     case '/documentacion':
       return <Documentation />;
     case '/noticias':
@@ -101,12 +125,3 @@ function App() {
   }
 }
 
-const AppWithAuth = () => {
-  return (
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  );
-};
-
-export default AppWithAuth;

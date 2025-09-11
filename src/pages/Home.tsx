@@ -9,25 +9,25 @@ import NewsSection from '../components/home/NewsSection';
 const Home: React.FC = () => {
   const featuredInstitutions = [
     {
-      id: 'csj',
+      id: 'institution-1',
       title: 'Corte Suprema de Justicia',
       description: 'Máximo tribunal de justicia en Guatemala, responsable de garantizar el estado de derecho.',
       imageUrl: 'https://images.pexels.com/photos/1536357/pexels-photo-1536357.jpeg',
-      link: '/instituciones/csj',
+      link: '/instituciones/institution-1',
     },
     {
-      id: 'cc',
+      id: 'institution-6',
       title: 'Corte de Constitucionalidad',
       description: 'Tribunal permanente con funciones específicas en materia constitucional.',
       imageUrl: 'https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg',
-      link: '/instituciones/cc',
+      link: '/instituciones/institution-6',
     },
     {
-      id: 'mp',
+      id: 'institution-7',
       title: 'Ministerio Público',
       description: 'Institución auxiliar de la administración de justicia, responsable de la acción penal pública.',
       imageUrl: 'https://images.pexels.com/photos/3760778/pexels-photo-3760778.jpeg',
-      link: '/instituciones/mp',
+      link: '/instituciones/institution-7',
     },
   ];
 
