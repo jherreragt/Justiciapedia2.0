@@ -5,7 +5,7 @@ import Button from '../ui/Button';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative bg-gradient-to-br from-primary-800 via-primary-700 to-justice-800 text-white overflow-hidden">
+    <div className="relative bg-gradient-to-br from-primary-800 via-primary-700 to-justice-800 text-white overflow-hidden -mt-8">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
       <div className="absolute top-20 right-10 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
       <div className="absolute bottom-20 left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
 
-      <Container className="relative z-10 section-padding">
+      <Container className="relative z-10 pt-16 pb-16">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-8 border border-white/20">

@@ -31,7 +31,7 @@ const NewsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-12 bg-gray-50">
       <Container>
         <div className="flex justify-between items-end mb-8">
           <div>

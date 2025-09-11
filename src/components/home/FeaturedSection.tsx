@@ -29,7 +29,7 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({
   };
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-10 bg-gray-50">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
           <div>

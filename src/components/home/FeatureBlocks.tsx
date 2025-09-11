@@ -25,7 +25,7 @@ const FeatureBlocks: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-12 bg-white">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => {

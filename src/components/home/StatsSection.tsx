@@ -15,7 +15,7 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-primary-700 text-white">
+    <section className="py-12 bg-primary-700 text-white">
       <Container>
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-4">Datos de Transparencia</h2>
