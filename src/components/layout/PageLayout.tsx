@@ -26,7 +26,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           description={description}
           className={headerClassName}
         />
-        <div className={`pb-12 ${contentClassName}`}>{children}</div>
+        <div className={`pb-12 -mt-8 ${contentClassName}`}>{children}</div>
       </Container>
     </Layout>
   );

@@ -41,7 +41,7 @@ const ProfileLayout: React.FC<ProfileLayoutProps> = ({
           </div>
         </Container>
       </div>
-      <Container className="py-8">
+      <Container className="py-8 -mt-8">
         <div className="bg-white rounded-lg shadow-md p-6">{children}</div>
       </Container>
     </Layout>

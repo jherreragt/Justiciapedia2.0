@@ -75,7 +75,7 @@ const PowerMaps: React.FC = () => {
       >
         <HeroSlider slides={slides} />
 
-        <div className="mb-6 mt-8 flex items-center space-x-4">
+        <div className="mb-6 mt-16 flex items-center space-x-4">
           <div className="relative flex-1">
             <input
               type="text"

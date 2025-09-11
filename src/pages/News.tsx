@@ -300,7 +300,7 @@ const News: React.FC = () => {
       <HeroSlider slides={slides} />
 
       {/* Search and Filter Section */}
-      <div className="my-8 space-y-4">
+      <div className="mt-16 mb-8 space-y-4">
         {/* Search Bar */}
         <div className="relative max-w-2xl mx-auto">
           <input
