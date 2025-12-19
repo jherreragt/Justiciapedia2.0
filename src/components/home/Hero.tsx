@@ -4,18 +4,18 @@ import HeroSlider from '../ui/HeroSlider';
 const Hero: React.FC = () => {
   const slides = [
     {
-      title: 'Transparencia en la Justicia de Guatemala',
-      description: 'Información verificada sobre los procesos de designación de autoridades judiciales para un sistema de justicia independiente, transparente y accesible.',
+      title: 'Justiciapedia',
+      description: 'Una plataforma ciudadana para conocer, entender y vigilar el sector justicia en Guatemala.',
       videoUrl: 'https://videos.pexels.com/video-files/5725953/5725953-uhd_2560_1440_25fps.mp4',
     },
     {
-      title: 'Sistema Judicial Independiente',
-      description: 'Conoce a los profesionales que aspiran a formar parte de las instituciones judiciales y su trayectoria.',
+      title: 'Conoce el sector justicia',
+      description: 'Una plataforma ciudadana para conocer, entender y vigilar el sector justicia en Guatemala.',
       videoUrl: 'https://videos.pexels.com/video-files/6077245/6077245-hd_1920_1080_30fps.mp4',
     },
     {
-      title: 'Instituciones de Justicia',
-      description: 'Explora las instituciones que conforman el sistema de justicia guatemalteco y su rol en la sociedad.',
+      title: 'Entiende cómo se eligen las autoridades',
+      description: 'Una plataforma ciudadana para conocer, entender y vigilar el sector justicia en Guatemala.',
       videoUrl: 'https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_25fps.mp4',
     },
   ];
