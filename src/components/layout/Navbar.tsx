@@ -79,28 +79,19 @@ const Navbar: React.FC = () => {
       icon: Home,
     },
     {
-      title: 'Sistema Judicial',
-      href: '#',
-      icon: Building2,
-      children: [
-        { title: 'Instituciones de Justicia', href: '/instituciones' },
-        { title: 'Comisiones de Postulación', href: '/comisiones' },
-        { title: 'Perfiles de Candidatos', href: '/candidatos' },
-      ],
+      title: 'Comisiones',
+      href: '/comisiones',
+      icon: Users,
     },
     {
-      title: 'Notas de Interés',
+      title: 'Aspirantes',
+      href: '/candidatos',
+      icon: UserCircle,
+    },
+    {
+      title: 'Noticias',
       href: '/noticias',
       icon: FileText,
-    },
-    {
-      title: 'Información',
-      href: '#',
-      icon: Book,
-      children: [
-        { title: 'Documentación', href: '/documentacion' },
-        { title: 'Acerca de', href: '/acerca' },
-      ],
     },
   ];
 
@@ -265,7 +256,7 @@ const Navbar: React.FC = () => {
         {isSearchOpen && (
           <div className="mt-5 pb-5 animate-slideDown border-t border-slate-100 pt-4">
             <SearchBar
-              placeholder="Buscar candidatos, instituciones, noticias..."
+              placeholder="Buscar aspirantes, comisiones, noticias..."
               onSearch={(query) => {
                 console.log('Searching for:', query);
                 if (query.trim()) {
@@ -390,20 +381,20 @@ const Navbar: React.FC = () => {
                 </h3>
                 <div className="space-y-1">
                   <a
+                    href="/comisiones"
+                    className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Users size={16} className="mr-3" />
+                    Ver Comisiones
+                  </a>
+                  <a
                     href="/candidatos"
                     className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <UserCircle size={16} className="mr-3" />
-                    Ver Candidatos
-                  </a>
-                  <a
-                    href="/instituciones"
-                    className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <Building2 size={16} className="mr-3" />
-                    Instituciones
+                    Ver Aspirantes
                   </a>
                   <a
                     href="/noticias"
