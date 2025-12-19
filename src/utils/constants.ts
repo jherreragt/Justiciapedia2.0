@@ -76,11 +76,10 @@ export const FOOTER_SECTIONS: FooterSection[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { platform: 'Facebook', href: 'https://facebook.com/justiciapediaGT', icon: 'facebook' },
-  { platform: 'Twitter', href: 'https://twitter.com/justiciapediaGT', icon: 'twitter' },
-  { platform: 'Instagram', href: 'https://instagram.com/justiciapediaGT', icon: 'instagram' },
-  { platform: 'LinkedIn', href: 'https://linkedin.com/company/justiciapediaGT', icon: 'linkedin' },
-  { platform: 'YouTube', href: 'https://youtube.com/@justiciapediaGT', icon: 'youtube' },
+  { platform: 'Instagram', href: 'https://www.instagram.com/redxguate/', icon: 'instagram' },
+  { platform: 'TikTok', href: 'https://www.tiktok.com/@redxguate', icon: 'tiktok' },
+  { platform: 'Twitter', href: 'https://twitter.com/redxguate', icon: 'twitter' },
+  { platform: 'YouTube', href: 'https://www.youtube.com/channel/UCQwc62j7beStZYFzwPxBEQg', icon: 'youtube' },
 ];
 
 export const COLORS = {
