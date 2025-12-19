@@ -3,7 +3,6 @@ import { Users, Calendar, Search, Filter, FileText, Clock, CheckCircle, AlertCir
 import PageLayout from '../components/layout/PageLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import VideoHero from '../components/ui/VideoHero';
 import { commissions } from '../data/commissions';
 
 const Commissions: React.FC = () => {
@@ -119,13 +118,8 @@ const Commissions: React.FC = () => {
       title="Comisiones de Postulación"
       description="Información sobre las comisiones encargadas de los procesos de selección de autoridades judiciales."
     >
-      <VideoHero
-        title="Comisiones de Postulación"
-        subtitle="Conoce los procesos de selección de autoridades judiciales en Guatemala"
-      />
-
       {/* Search and Filter Section */}
-      <div className="mt-16 mb-8 space-y-4">
+      <div className="mb-8 space-y-4">
         {/* Search Bar */}
         <div className="relative max-w-2xl mx-auto">
           <input
