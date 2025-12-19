@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthProvider } from './contexts/AuthContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Institutions from './pages/Institutions';
 import InstitutionProfile from './pages/InstitutionProfile';
@@ -22,107 +22,47 @@ import Cookies from './pages/Cookies';
 import Resources from './pages/Resources';
 
 function App() {
-  // Define enhanced color palette for justice theme
-  document.documentElement.style.setProperty('--color-primary-50', '#f0f4f8');
-  document.documentElement.style.setProperty('--color-primary-100', '#d9e2ec');
-  document.documentElement.style.setProperty('--color-primary-200', '#bcccdc');
-  document.documentElement.style.setProperty('--color-primary-300', '#9fb3c8');
-  document.documentElement.style.setProperty('--color-primary-400', '#829ab1');
-  document.documentElement.style.setProperty('--color-primary-500', '#627d98');
-  document.documentElement.style.setProperty('--color-primary-600', '#486581');
-  document.documentElement.style.setProperty('--color-primary-700', '#334e68');
-  document.documentElement.style.setProperty('--color-primary-800', '#243b53');
-  document.documentElement.style.setProperty('--color-primary-900', '#102a43');
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--color-primary-50', '#f0f4f8');
+    document.documentElement.style.setProperty('--color-primary-100', '#d9e2ec');
+    document.documentElement.style.setProperty('--color-primary-200', '#bcccdc');
+    document.documentElement.style.setProperty('--color-primary-300', '#9fb3c8');
+    document.documentElement.style.setProperty('--color-primary-400', '#829ab1');
+    document.documentElement.style.setProperty('--color-primary-500', '#627d98');
+    document.documentElement.style.setProperty('--color-primary-600', '#486581');
+    document.documentElement.style.setProperty('--color-primary-700', '#334e68');
+    document.documentElement.style.setProperty('--color-primary-800', '#243b53');
+    document.documentElement.style.setProperty('--color-primary-900', '#102a43');
+  }, []);
 
-  // Get the current path
-  const path = window.location.pathname;
-  
-  // Check if we're on an institution profile page
-  const institutionMatch = path.match(/^\/instituciones\/([^/]+)$/);
-  if (institutionMatch) {
-    return (
-      <AuthProvider>
-        <InstitutionProfile institutionId={institutionMatch[1]} />
-      </AuthProvider>
-    );
-  }
-
-  // Check if we're on a commission profile page
-  const commissionMatch = path.match(/^\/comisiones\/([^/]+)$/);
-  if (commissionMatch) {
-    return (
-      <AuthProvider>
-        <CommissionProfile commissionId={commissionMatch[1]} />
-      </AuthProvider>
-    );
-  }
-
-  // Check if we're on a candidate profile page
-  const candidateMatch = path.match(/^\/candidatos\/([^/]+)$/);
-  if (candidateMatch) {
-    return (
-      <AuthProvider>
-        <CandidateProfile candidateId={candidateMatch[1]} />
-      </AuthProvider>
-    );
-  }
-
-  // Check if we're on a news article page
-  const newsMatch = path.match(/^\/noticias\/([^/]+)$/);
-  if (newsMatch) {
-    return (
-      <AuthProvider>
-        <NewsArticle articleId={newsMatch[1]} />
-      </AuthProvider>
-    );
-  }
-
-  // Routes
-  switch (path) {
-    case '/':
-      return <Home />;
-    case '/instituciones':
-      return <Institutions />;
-    case '/comisiones':
-      return <Commissions />;
-    case '/candidatos':
-      return <Candidates />;
-    case '/mapas-poder':
-      return (
-        <AuthProvider>
-          <PowerMaps />
-        </AuthProvider>
-      );
-    case '/dashboard':
-      return (
-        <AuthProvider>
-          <Dashboard />
-        </AuthProvider>
-      );
-    case '/documentacion':
-      return <Documentation />;
-    case '/noticias':
-      return <News />;
-    case '/buscar':
-      return <SearchPage />;
-    case '/acerca':
-      return <About />;
-    case '/contacto':
-      return <Contact />;
-    case '/legal/privacidad':
-      return <Privacy />;
-    case '/legal/terminos':
-      return <Terms />;
-    case '/legal/cookies':
-      return <Cookies />;
-    case '/recursos/datos':
-    case '/recursos/informes':
-    case '/recursos/biblioteca':
-      return <Resources />;
-    default:
-      // Show 404 page for any unmatched route
-      return <NotFound />;
-  }
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/instituciones" element={<Institutions />} />
+        <Route path="/instituciones/:institutionId" element={<InstitutionProfile />} />
+        <Route path="/comisiones" element={<Commissions />} />
+        <Route path="/comisiones/:commissionId" element={<CommissionProfile />} />
+        <Route path="/candidatos" element={<Candidates />} />
+        <Route path="/candidatos/:candidateId" element={<CandidateProfile />} />
+        <Route path="/mapas-poder" element={<PowerMaps />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/documentacion" element={<Documentation />} />
+        <Route path="/noticias" element={<News />} />
+        <Route path="/noticias/:articleId" element={<NewsArticle />} />
+        <Route path="/buscar" element={<SearchPage />} />
+        <Route path="/acerca" element={<About />} />
+        <Route path="/contacto" element={<Contact />} />
+        <Route path="/legal/privacidad" element={<Privacy />} />
+        <Route path="/legal/terminos" element={<Terms />} />
+        <Route path="/legal/cookies" element={<Cookies />} />
+        <Route path="/recursos/datos" element={<Resources />} />
+        <Route path="/recursos/informes" element={<Resources />} />
+        <Route path="/recursos/biblioteca" element={<Resources />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

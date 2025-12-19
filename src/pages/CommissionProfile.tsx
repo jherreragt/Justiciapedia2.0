@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, Users, FileText, Clock, CheckCircle, AlertCircle, XCircle, ArrowLeft, Download, Eye, MapPin, Phone, Mail, Globe, Award, Target, BookOpen, TrendingUp } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
@@ -6,16 +7,12 @@ import Button from '../components/ui/Button';
 import { commissions } from '../data/commissions';
 import { candidates } from '../data/candidates';
 
-interface CommissionProfileProps {
-  commissionId?: string;
-}
-
-const CommissionProfile: React.FC<CommissionProfileProps> = ({ commissionId }) => {
+const CommissionProfile: React.FC = () => {
+  const { commissionId } = useParams<{ commissionId: string }>();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Get commission ID from props or URL
-  const id = commissionId || window.location.pathname.split('/').pop() || '';
-  const commission = commissions.find(c => c.id === id);
+  const commission = commissions.find(c => c.id === commissionId);
 
   if (!commission) {
     return (
@@ -24,13 +21,13 @@ const CommissionProfile: React.FC<CommissionProfileProps> = ({ commissionId }) =
           <Users size={64} className="mx-auto text-gray-400 mb-4" />
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Comisión no encontrada</h1>
           <p className="text-gray-600 mb-4">La comisión que buscas no existe o ha sido removida.</p>
-          <a
-            href="/comisiones"
+          <Link
+            to="/comisiones"
             className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
           >
             <ArrowLeft size={16} className="mr-2" />
             Ver todas las comisiones
-          </a>
+          </Link>
         </div>
       </div>
     );

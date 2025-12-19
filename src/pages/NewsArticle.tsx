@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, User, Clock, Eye, ArrowLeft, Tag, BookOpen } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent } from '../components/ui/Card';
@@ -6,14 +7,11 @@ import Button from '../components/ui/Button';
 import SocialShare from '../components/ui/SocialShare';
 import { newsArticles } from '../data/news';
 
-interface NewsArticleProps {
-  articleId?: string;
-}
+const NewsArticle: React.FC = () => {
+  const { articleId } = useParams<{ articleId: string }>();
+  const navigate = useNavigate();
 
-const NewsArticle: React.FC<NewsArticleProps> = ({ articleId }) => {
-  // Get article ID from props or URL
-  const id = articleId || window.location.pathname.split('/').pop() || '';
-  const article = newsArticles.find(a => a.id === id);
+  const article = newsArticles.find(a => a.id === articleId);
 
   if (!article) {
     return (
@@ -22,13 +20,13 @@ const NewsArticle: React.FC<NewsArticleProps> = ({ articleId }) => {
           <BookOpen size={64} className="mx-auto text-gray-400 mb-4" />
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Artículo no encontrado</h1>
           <p className="text-gray-600 mb-4">El artículo que buscas no existe o ha sido removido.</p>
-          <a
-            href="/noticias"
+          <Link
+            to="/noticias"
             className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
           >
             <ArrowLeft size={16} className="mr-2" />
             Ver todas las noticias
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -225,14 +223,14 @@ const NewsArticle: React.FC<NewsArticleProps> = ({ articleId }) => {
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <Button
               variant="outline"
-              onClick={() => window.history.back()}
+              onClick={() => navigate(-1)}
             >
               <ArrowLeft size={16} className="mr-2" />
               Volver
             </Button>
             <Button
               variant="primary"
-              onClick={() => window.location.href = '/noticias'}
+              onClick={() => navigate('/noticias')}
             >
               Ver más noticias
             </Button>
@@ -286,7 +284,7 @@ const NewsArticle: React.FC<NewsArticleProps> = ({ articleId }) => {
                     <div
                       key={relatedArticle.id}
                       className="group cursor-pointer"
-                      onClick={() => window.location.href = `/noticias/${relatedArticle.id}`}
+                      onClick={() => navigate(`/noticias/${relatedArticle.id}`)}
                     >
                       <div className="flex space-x-3">
                         <img
@@ -310,7 +308,7 @@ const NewsArticle: React.FC<NewsArticleProps> = ({ articleId }) => {
                   variant="outline"
                   size="sm"
                   className="w-full mt-4"
-                  onClick={() => window.location.href = `/noticias?category=${article.category}`}
+                  onClick={() => navigate(`/noticias?category=${article.category}`)}
                 >
                   Ver más en {article.category}
                 </Button>

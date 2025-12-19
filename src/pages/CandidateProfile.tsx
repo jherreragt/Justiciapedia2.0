@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FileText, Building2, GraduationCap, Network, User, ArrowLeft, Award, BookOpen, Languages, ExternalLink, Calendar, MapPin, Star, Globe } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
@@ -6,16 +7,12 @@ import Button from '../components/ui/Button';
 import CandidateNetwork from '../components/network/CandidateNetwork';
 import { candidates } from '../data/candidates';
 
-interface CandidateProfileProps {
-  candidateId?: string;
-}
-
-const CandidateProfile: React.FC<CandidateProfileProps> = ({ candidateId }) => {
+const CandidateProfile: React.FC = () => {
+  const { candidateId } = useParams<{ candidateId: string }>();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('basic');
 
-  // Get candidate ID from props or URL
-  const id = candidateId || window.location.pathname.split('/').pop() || '';
-  const candidate = candidates.find(c => c.id === id);
+  const candidate = candidates.find(c => c.id === candidateId);
 
   if (!candidate) {
     return (
@@ -24,13 +21,13 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({ candidateId }) => {
           <User size={64} className="mx-auto text-gray-400 mb-4" />
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Candidato no encontrado</h1>
           <p className="text-gray-600 mb-4">El candidato que buscas no existe o ha sido removido.</p>
-          <a
-            href="/candidatos"
+          <Link
+            to="/candidatos"
             className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
           >
             <ArrowLeft size={16} className="mr-2" />
             Ver todos los candidatos
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -367,7 +364,7 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({ candidateId }) => {
         <div className="mt-8 flex flex-col md:flex-row justify-between gap-4">
           <Button
             variant="outline"
-            onClick={() => window.history.back()}
+            onClick={() => navigate(-1)}
           >
             <ArrowLeft size={16} className="mr-2" />
             Volver
@@ -375,13 +372,13 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({ candidateId }) => {
           <div className="flex gap-2">
             <Button
               variant="outline"
-              onClick={() => window.location.href = `/comisiones/${candidate.commissionId}`}
+              onClick={() => navigate(`/comisiones/${candidate.commissionId}`)}
             >
               Ver comisión
             </Button>
             <Button
               variant="primary"
-              onClick={() => window.location.href = '/candidatos'}
+              onClick={() => navigate('/candidatos')}
             >
               Ver todos los candidatos
             </Button>

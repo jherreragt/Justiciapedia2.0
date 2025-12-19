@@ -1,17 +1,13 @@
 import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { Building2, Clock, Mail, Phone, Globe, Users, Landmark } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent } from '../components/ui/Card';
 import { institutions } from '../data/institutions';
 
-interface InstitutionProfileProps {
-  institutionId?: string;
-}
-
-const InstitutionProfile: React.FC<InstitutionProfileProps> = ({ institutionId }) => {
-  // Get institution ID from props or URL
-  const id = institutionId || window.location.pathname.split('/').pop() || '';
-  const institution = institutions.find(inst => inst.id === id);
+const InstitutionProfile: React.FC = () => {
+  const { institutionId } = useParams<{ institutionId: string }>();
+  const institution = institutions.find(inst => inst.id === institutionId);
 
   if (!institution) {
     return (
@@ -20,12 +16,12 @@ const InstitutionProfile: React.FC<InstitutionProfileProps> = ({ institutionId }
           <Building2 size={64} className="mx-auto text-gray-400 mb-4" />
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Institución no encontrada</h1>
           <p className="text-gray-600 mb-4">La institución que buscas no existe o ha sido removida.</p>
-          <a
-            href="/instituciones"
+          <Link
+            to="/instituciones"
             className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
           >
             Ver todas las instituciones
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -206,27 +202,27 @@ const InstitutionProfile: React.FC<InstitutionProfileProps> = ({ institutionId }
             <CardContent>
               <h2 className="text-xl font-semibold mb-4">Enlaces Relacionados</h2>
               <div className="space-y-3">
-                <a
-                  href="/leyes-aplicables"
+                <Link
+                  to="/leyes-aplicables"
                   className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 hover:underline p-2 rounded-md hover:bg-primary-50 transition-colors"
                 >
                   <Landmark size={16} />
                   <span>Leyes Aplicables</span>
-                </a>
-                <a
-                  href="/transparencia"
+                </Link>
+                <Link
+                  to="/transparencia"
                   className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 hover:underline p-2 rounded-md hover:bg-primary-50 transition-colors"
                 >
                   <Building2 size={16} />
                   <span>Portal de Transparencia</span>
-                </a>
-                <a
-                  href="/instituciones"
+                </Link>
+                <Link
+                  to="/instituciones"
                   className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 hover:underline p-2 rounded-md hover:bg-primary-50 transition-colors"
                 >
                   <Building2 size={16} />
                   <span>Todas las Instituciones</span>
-                </a>
+                </Link>
               </div>
             </CardContent>
           </Card>
