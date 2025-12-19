@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
 import Hero from '../components/home/Hero';
+import AboutSection from '../components/home/AboutSection';
 import FeatureBlocks from '../components/home/FeatureBlocks';
 import FeaturedSection from '../components/home/FeaturedSection';
 import StatsSection from '../components/home/StatsSection';
@@ -34,6 +35,7 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <Hero />
+      <AboutSection />
       <FeatureBlocks />
       
       <FeaturedSection 
