@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, ArrowRight, Shield, Users, FileText } from 'lucide-react';
+import { ArrowRight, Shield, Users, FileText } from 'lucide-react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import HeroSlider from '../ui/HeroSlider';
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="primary"
                 size="lg"
@@ -72,56 +72,6 @@ const Hero: React.FC = () => {
               >
                 Más Información
               </Button>
-            </div>
-
-            {/* Enhanced Search Bar */}
-            <div className="relative max-w-2xl mx-auto">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Buscar candidatos, instituciones, procesos o noticias..."
-                  className="w-full h-16 pl-6 pr-16 rounded-2xl shadow-strong text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-4 focus:ring-white/30 bg-white/95 backdrop-blur-sm border border-white/20 text-lg"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary-600 text-white p-4 rounded-xl hover:bg-primary-700 transition-all duration-200 shadow-medium hover:shadow-strong hover:scale-105"
-                  aria-label="Buscar"
-                >
-                  <Search size={24} />
-                </button>
-              </div>
-
-              {/* Search Suggestions */}
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
-                <span className="text-white/70 text-sm mr-2">Búsquedas populares:</span>
-                {['magistrado', 'corte suprema', 'comisión postulación', 'fiscal general'].map((term) => (
-                  <button
-                    key={term}
-                    className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-sm text-white/90 transition-colors duration-200 border border-white/20"
-                    onClick={() => {
-                      const input = document.querySelector('input[type="text"]') as HTMLInputElement;
-                      if (input) {
-                        input.value = term;
-                        input.focus();
-                      }
-                    }}
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="mt-12 pt-8 border-t border-white/20">
-              <p className="text-white/70 text-sm mb-4">Información respaldada por:</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-                <div className="text-white/60 text-sm font-medium">Organismo Judicial</div>
-                <div className="w-1 h-1 bg-white/40 rounded-full"></div>
-                <div className="text-white/60 text-sm font-medium">Ministerio Público</div>
-                <div className="w-1 h-1 bg-white/40 rounded-full"></div>
-                <div className="text-white/60 text-sm font-medium">Sociedad Civil</div>
-              </div>
             </div>
           </div>
         </Container>
