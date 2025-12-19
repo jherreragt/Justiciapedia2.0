@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Button from './Button';
 
 interface Slide {
   title: string;
   description: string;
-  imageUrl: string;
+  videoUrl?: string;
+  imageUrl?: string;
   link?: string;
 }
 
@@ -14,11 +15,12 @@ interface HeroSliderProps {
   autoplayInterval?: number;
 }
 
-const HeroSlider: React.FC<HeroSliderProps> = ({ 
-  slides, 
-  autoplayInterval = 5000 
+const HeroSlider: React.FC<HeroSliderProps> = ({
+  slides,
+  autoplayInterval = 5000
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,6 +29,19 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
     return () => clearInterval(timer);
   }, [slides.length, autoplayInterval]);
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === currentSlide) {
+          video.play().catch(err => console.log('Video play failed:', err));
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  }, [currentSlide]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -50,13 +65,29 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.imageUrl})` }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-          </div>
+          {/* Background Video or Image */}
+          {slide.videoUrl ? (
+            <div className="absolute inset-0">
+              <video
+                ref={(el) => (videoRefs.current[index] = el)}
+                className="absolute inset-0 w-full h-full object-cover"
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              >
+                <source src={slide.videoUrl} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black bg-opacity-50" />
+            </div>
+          ) : (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slide.imageUrl})` }}
+            >
+              <div className="absolute inset-0 bg-black bg-opacity-50" />
+            </div>
+          )}
 
           {/* Content */}
           <div className="relative h-full flex items-center">

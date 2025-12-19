@@ -20,17 +20,17 @@ const Candidates: React.FC = () => {
     {
       title: 'Aspirantes al Proceso de Formación',
       description: 'Conoce a los profesionales que aspiran a formar parte del sistema judicial guatemalteco.',
-      imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
+      videoUrl: 'https://videos.pexels.com/video-files/5725953/5725953-uhd_2560_1440_25fps.mp4',
     },
     {
       title: 'Proceso de Formación',
       description: 'Información sobre los procesos de selección y formación de aspirantes.',
-      imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
+      videoUrl: 'https://videos.pexels.com/video-files/6077245/6077245-hd_1920_1080_30fps.mp4',
     },
     {
       title: 'Transparencia y Acceso',
       description: 'Accede a información detallada sobre la trayectoria de cada aspirante.',
-      imageUrl: 'https://images.pexels.com/photos/5325105/pexels-photo-5325105.jpeg',
+      videoUrl: 'https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_25fps.mp4',
     },
   ];
 

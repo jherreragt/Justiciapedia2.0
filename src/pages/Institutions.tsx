@@ -17,17 +17,17 @@ const Institutions: React.FC = () => {
     {
       title: 'Sistema Judicial de Guatemala',
       description: 'Conoce las instituciones que conforman el sistema de justicia y su rol en la sociedad.',
-      imageUrl: 'https://images.pexels.com/photos/1536357/pexels-photo-1536357.jpeg',
+      videoUrl: 'https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_25fps.mp4',
     },
     {
       title: 'Transparencia y Acceso',
       description: 'Información actualizada sobre el funcionamiento de las instituciones judiciales.',
-      imageUrl: 'https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg',
+      videoUrl: 'https://videos.pexels.com/video-files/6077245/6077245-hd_1920_1080_30fps.mp4',
     },
     {
       title: 'Participación Ciudadana',
       description: 'Descubre cómo puedes involucrarte en el fortalecimiento del sistema judicial.',
-      imageUrl: 'https://images.pexels.com/photos/8111965/pexels-photo-8111965.jpeg',
+      videoUrl: 'https://videos.pexels.com/video-files/5725953/5725953-uhd_2560_1440_25fps.mp4',
     },
   ];
 
