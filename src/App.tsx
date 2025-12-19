@@ -7,7 +7,6 @@ import Commissions from './pages/Commissions';
 import CommissionProfile from './pages/CommissionProfile';
 import Candidates from './pages/Candidates';
 import CandidateProfile from './pages/CandidateProfile';
-import PowerMaps from './pages/PowerMaps';
 import Dashboard from './pages/Dashboard';
 import Documentation from './pages/Documentation';
 import News from './pages/News';
@@ -45,7 +44,6 @@ function App() {
         <Route path="/comisiones/:commissionId" element={<CommissionProfile />} />
         <Route path="/candidatos" element={<Candidates />} />
         <Route path="/candidatos/:candidateId" element={<CandidateProfile />} />
-        <Route path="/mapas-poder" element={<PowerMaps />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/documentacion" element={<Documentation />} />
         <Route path="/noticias" element={<News />} />

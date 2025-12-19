@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, Network, FileText, Book, InfoIcon, Scale, LogIn, HandHelping } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, FileText, Book, InfoIcon, Scale, LogIn, HandHelping } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import UserMenu from '../auth/UserMenu';
 import LoginModal from '../auth/LoginModal';
@@ -63,7 +63,6 @@ const Navbar: React.FC = () => {
       'Instituciones de Justicia': Building2,
       'Comisiones de Postulación': Users,
       'Perfiles de Candidatos': UserCircle,
-      'Mapas de Poder': Network,
       'Notas de Interés': FileText,
       'Participa': HandHelping,
       'Documentación': Book,
@@ -90,13 +89,9 @@ const Navbar: React.FC = () => {
       ],
     },
     {
-      title: 'Análisis',
-      href: '#',
-      icon: Network,
-      children: [
-        ...(isAuthenticated ? [{ title: 'Mapas de Poder', href: '/mapas-poder' }] : []),
-        { title: 'Notas de Interés', href: '/noticias' },
-      ],
+      title: 'Notas de Interés',
+      href: '/noticias',
+      icon: FileText,
     },
     {
       title: 'Información',
@@ -209,8 +204,6 @@ const Navbar: React.FC = () => {
                               {child.title === 'Instituciones de Justicia' && 'Explora las instituciones del sistema'}
                               {child.title === 'Comisiones de Postulación' && 'Procesos de selección activos'}
                               {child.title === 'Perfiles de Candidatos' && 'Candidatos a puestos judiciales'}
-                              {child.title === 'Mapas de Poder' && 'Visualiza conexiones y relaciones'}
-                              {child.title === 'Notas de Interés' && 'Noticias y análisis actualizados'}
                               {child.title === 'Documentación' && 'Guías y recursos'}
                               {child.title === 'Acerca de' && 'Conoce más sobre nosotros'}
                             </div>

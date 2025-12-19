@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { FileText, Building2, GraduationCap, Network, User, ArrowLeft, Award, BookOpen, Languages, ExternalLink, Calendar, MapPin, Star, Globe } from 'lucide-react';
+import { FileText, Building2, GraduationCap, User, ArrowLeft, Award, BookOpen, Languages, ExternalLink, Calendar, MapPin, Star, Globe } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import CandidateNetwork from '../components/network/CandidateNetwork';
 import Loading from '../components/ui/Loading';
 import { candidates } from '../data/candidates';
 
@@ -47,29 +46,11 @@ const CandidateProfile: React.FC = () => {
     );
   }
 
-  // Sample network data
-  const networkData = {
-    nodes: [
-      { id: '1', name: candidate.name, group: 'person', image: candidate.imageUrl },
-      { id: '2', name: 'Universidad de San Carlos', group: 'education', description: 'Facultad de Ciencias Jurídicas' },
-      { id: '3', name: candidate.institution, group: 'institution' },
-      { id: '4', name: 'Bufete Jurídico XYZ', group: 'work' },
-      { id: '5', name: 'Asociación de Jueces', group: 'institution' },
-    ],
-    links: [
-      { source: '1', target: '2', type: 'graduated' },
-      { source: '1', target: '3', type: 'works_at' },
-      { source: '1', target: '4', type: 'worked_at' },
-      { source: '1', target: '5', type: 'member' },
-    ],
-  };
-
   const tabs = [
     { id: 'basic', label: 'Datos Básicos', icon: FileText },
     { id: 'experience', label: 'Experiencia', icon: Building2 },
     { id: 'education', label: 'Formación', icon: GraduationCap },
     { id: 'achievements', label: 'Logros', icon: Award },
-    { id: 'network', label: 'Red de Vínculos', icon: Network },
   ];
 
   const getStatusColor = (status: string) => {
@@ -315,9 +296,6 @@ const CandidateProfile: React.FC = () => {
             )}
           </div>
         );
-
-      case 'network':
-        return <CandidateNetwork candidateId={candidate.id} data={networkData} />;
 
       default:
         return null;

@@ -82,13 +82,6 @@ const Dashboard: React.FC = () => {
       color: 'bg-blue-500 hover:bg-blue-600'
     },
     {
-      title: 'Ver Mapas de Poder',
-      description: 'Acceder a visualizaciones avanzadas',
-      icon: Eye,
-      action: () => window.location.href = '/mapas-poder',
-      color: 'bg-green-500 hover:bg-green-600'
-    },
-    {
       title: 'Generar Reporte',
       description: 'Crear reporte personalizado',
       icon: FileText,
