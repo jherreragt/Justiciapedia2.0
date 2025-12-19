@@ -49,6 +49,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Sobre JusticiapedIA',
     links: [
+      { title: '¿Qué es Justiciapedia?', href: '/que-es-justiciapedia' },
       { title: 'Acerca de Nosotros', href: '/acerca' },
       { title: 'Contacto', href: '/contacto' },
       { title: 'Nuestro Equipo', href: '/acerca#equipo' },

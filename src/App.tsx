@@ -14,6 +14,7 @@ import NewsArticle from './pages/NewsArticle';
 import SearchPage from './pages/Search';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
+import WhatIsJusticiapedia from './pages/WhatIsJusticiapedia';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
@@ -50,6 +51,7 @@ function App() {
         <Route path="/noticias/:articleId" element={<NewsArticle />} />
         <Route path="/buscar" element={<SearchPage />} />
         <Route path="/acerca" element={<About />} />
+        <Route path="/que-es-justiciapedia" element={<WhatIsJusticiapedia />} />
         <Route path="/contacto" element={<Contact />} />
         <Route path="/legal/privacidad" element={<Privacy />} />
         <Route path="/legal/terminos" element={<Terms />} />
