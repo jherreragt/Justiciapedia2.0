@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { BarChart3, Users, Building2, FileText, TrendingUp, Calendar, Award, AlertCircle, Eye, Download, Filter } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
-import ProtectedRoute from '../components/auth/ProtectedRoute';
 import PageLayout from '../components/layout/PageLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
@@ -11,7 +9,6 @@ import { commissions } from '../data/commissions';
 import { newsArticles } from '../data/news';
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
   const [selectedPeriod, setSelectedPeriod] = useState('month');
 
   // Calculate statistics
@@ -98,23 +95,22 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <ProtectedRoute>
-      <PageLayout
-        title="Dashboard"
-        description={`Bienvenido, ${user?.name}. Aquí tienes un resumen de la actividad del sistema judicial.`}
-      >
-        {/* Welcome Section */}
-        <Card className="mb-8 bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-primary-900 mb-2">
-                  Bienvenido, {user?.name}
-                </h2>
-                <p className="text-primary-700">
-                  Rol: <span className="font-semibold">{user?.role === 'admin' ? 'Administrador' : user?.role === 'researcher' ? 'Investigador' : 'Ciudadano'}</span>
-                </p>
-              </div>
+    <PageLayout
+      title="Dashboard"
+      description="Aquí tienes un resumen de la actividad del sistema judicial."
+    >
+      {/* Welcome Section */}
+      <Card className="mb-8 bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-primary-900 mb-2">
+                Panel de Control
+              </h2>
+              <p className="text-primary-700">
+                Resumen de la actividad del sistema judicial
+              </p>
+            </div>
               <div className="flex items-center space-x-2">
                 <select
                   value={selectedPeriod}
@@ -361,7 +357,6 @@ const Dashboard: React.FC = () => {
           </Card>
         </div>
       </PageLayout>
-    </ProtectedRoute>
   );
 };
 

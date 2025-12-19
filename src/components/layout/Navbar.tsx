@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, FileText, Book, InfoIcon, Scale, LogIn, HandHelping, Database, GraduationCap } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
-import UserMenu from '../auth/UserMenu';
-import LoginModal from '../auth/LoginModal';
+import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, FileText, Book, InfoIcon, Scale, HandHelping, Database, GraduationCap } from 'lucide-react';
 import { NAV_ITEMS, SITE_NAME } from '../../utils/constants';
 import Container from '../ui/Container';
 import SearchBar from '../ui/SearchBar';
@@ -20,9 +17,7 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -225,23 +220,6 @@ const Navbar: React.FC = () => {
 
           {/* Search and Mobile Menu Toggle */}
           <div className="flex items-center space-x-2">
-            {/* User Menu or Login Button */}
-            <div className="hidden md:block">
-              {isAuthenticated ? (
-                <UserMenu />
-              ) : (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setShowLoginModal(true)}
-                  className="flex items-center"
-                >
-                  <LogIn size={16} className="mr-2" />
-                  Iniciar Sesión
-                </Button>
-              )}
-            </div>
-
             <button
               className={`p-2.5 rounded-xl transition-all duration-200 ${
                 isSearchOpen
@@ -370,25 +348,6 @@ const Navbar: React.FC = () => {
                 />
               </div>
 
-              {/* Mobile Auth */}
-              <div className="pt-6 border-t border-slate-200 mt-6">
-                {isAuthenticated ? (
-                  <UserMenu />
-                ) : (
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      setShowLoginModal(true);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="w-full"
-                  >
-                    <LogIn size={16} className="mr-2" />
-                    Iniciar Sesión
-                  </Button>
-                )}
-              </div>
-
               {/* Quick Actions */}
               <div className="pt-6 border-t border-slate-200 mt-6">
                 <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wider mb-4 px-5">
@@ -425,12 +384,6 @@ const Navbar: React.FC = () => {
           </Container>
         </div>
       )}
-
-      {/* Login Modal */}
-      <LoginModal
-        isOpen={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-      />
     </header>
   );
 };
