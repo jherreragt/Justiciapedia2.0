@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Instagram, Scale, ExternalLink, Youtube } from 'lucide-react';
+import { Twitter, Instagram, Scale, ExternalLink, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { FOOTER_SECTIONS, SOCIAL_LINKS, SITE_NAME } from '../../utils/constants';
 import Container from '../ui/Container';
 
