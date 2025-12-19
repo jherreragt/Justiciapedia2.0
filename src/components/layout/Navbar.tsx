@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-[44px] left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/98 backdrop-blur-lg shadow-lg py-2 border-b border-slate-200'
           : 'bg-white shadow-md py-3 border-b border-slate-100'
@@ -280,7 +280,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[85px] bg-white z-40 overflow-y-auto animate-slideDown shadow-2xl">
+        <div className="lg:hidden fixed inset-0 top-[129px] bg-white z-40 overflow-y-auto animate-slideDown shadow-2xl">
           <Container>
             <div className="py-6 space-y-1">
               {enhancedNavItems.map((item) => {

@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({
     <div className="flex flex-col min-h-screen">
       <TopBar />
       <Navbar />
-      <main className="flex-grow pt-[100px]">
+      <main className="flex-grow pt-[130px]">
         {children}
       </main>
       <Footer />
