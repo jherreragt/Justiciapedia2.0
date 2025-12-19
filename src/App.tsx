@@ -15,6 +15,7 @@ import SearchPage from './pages/Search';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
 import WhatIsJusticiapedia from './pages/WhatIsJusticiapedia';
+import OpenData from './pages/OpenData';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
@@ -56,7 +57,7 @@ function App() {
         <Route path="/legal/privacidad" element={<Privacy />} />
         <Route path="/legal/terminos" element={<Terms />} />
         <Route path="/legal/cookies" element={<Cookies />} />
-        <Route path="/recursos/datos" element={<Resources />} />
+        <Route path="/recursos/datos" element={<OpenData />} />
         <Route path="/recursos/informes" element={<Resources />} />
         <Route path="/recursos/biblioteca" element={<Resources />} />
         <Route path="*" element={<NotFound />} />
