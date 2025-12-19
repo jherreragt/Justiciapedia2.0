@@ -3,7 +3,6 @@ import { UserCircle, Building2, Filter, Search, Award, BookOpen, Languages, Chev
 import PageLayout from '../components/layout/PageLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import HeroSlider from '../components/ui/HeroSlider';
 import { candidates } from '../data/candidates';
 
 const Candidates: React.FC = () => {
@@ -15,24 +14,6 @@ const Candidates: React.FC = () => {
   const [sortBy, setSortBy] = useState('name');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showFilters, setShowFilters] = useState(false);
-  
-  const slides = [
-    {
-      title: 'Aspirantes al Proceso de Formación',
-      description: 'Conoce a los profesionales que aspiran a formar parte del sistema judicial guatemalteco.',
-      videoUrl: 'https://videos.pexels.com/video-files/5725953/5725953-uhd_2560_1440_25fps.mp4',
-    },
-    {
-      title: 'Proceso de Formación',
-      description: 'Información sobre los procesos de selección y formación de aspirantes.',
-      videoUrl: 'https://videos.pexels.com/video-files/6077245/6077245-hd_1920_1080_30fps.mp4',
-    },
-    {
-      title: 'Transparencia y Acceso',
-      description: 'Accede a información detallada sobre la trayectoria de cada aspirante.',
-      videoUrl: 'https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_25fps.mp4',
-    },
-  ];
 
   // Get unique values for filtering
   const institutions = useMemo(() => {
@@ -252,8 +233,6 @@ const Candidates: React.FC = () => {
       title="Aspirantes al Proceso de Formación"
       description="Información sobre los aspirantes al proceso de formación en el sistema judicial guatemalteco."
     >
-      <HeroSlider slides={slides} />
-
       {/* Search and Filter Section */}
       <div className="mt-16 mb-8 space-y-4">
         {/* Search Bar */}
