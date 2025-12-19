@@ -31,30 +31,6 @@ const Home: React.FC = () => {
     },
   ];
 
-  const featuredCandidates = [
-    {
-      id: '1',
-      title: 'María Eugenia Morales',
-      description: 'Candidata a magistrada de la Corte Suprema de Justicia con experiencia en derecho constitucional.',
-      imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
-      link: '/candidatos/1',
-    },
-    {
-      id: '2',
-      title: 'Juan Carlos Rodríguez',
-      description: 'Candidato a magistrado de la Corte de Constitucionalidad con amplia trayectoria académica.',
-      imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
-      link: '/candidatos/2',
-    },
-    {
-      id: '3',
-      title: 'Ana Lucía Castillo',
-      description: 'Candidata a Fiscal General con especialización en derechos humanos y justicia transicional.',
-      imageUrl: 'https://images.pexels.com/photos/5325105/pexels-photo-5325105.jpeg',
-      link: '/candidatos/3',
-    },
-  ];
-
   return (
     <Layout>
       <Hero />
@@ -68,13 +44,6 @@ const Home: React.FC = () => {
       />
       
       <StatsSection />
-      
-      <FeaturedSection 
-        title="Perfiles de Candidatos" 
-        description="Explora los perfiles de los candidatos a puestos clave en el sistema judicial."
-        items={featuredCandidates}
-        viewAllLink="/candidatos"
-      />
 
       <NewsSection />
     </Layout>
