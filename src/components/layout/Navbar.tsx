@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, FileText, Book, InfoIcon, Scale, LogIn, HandHelping } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Home, Building2, Users, UserCircle, FileText, Book, InfoIcon, Scale, LogIn, HandHelping, Database, GraduationCap } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import UserMenu from '../auth/UserMenu';
 import LoginModal from '../auth/LoginModal';
@@ -92,6 +92,21 @@ const Navbar: React.FC = () => {
       title: 'Noticias',
       href: '/noticias',
       icon: FileText,
+    },
+    {
+      title: 'Aprende',
+      href: '/aprende',
+      icon: GraduationCap,
+    },
+    {
+      title: 'Datos Abiertos',
+      href: '/recursos/datos',
+      icon: Database,
+    },
+    {
+      title: 'Qué es Justiciapedia',
+      href: '/que-es-justiciapedia',
+      icon: InfoIcon,
     },
   ];
 
@@ -381,28 +396,28 @@ const Navbar: React.FC = () => {
                 </h3>
                 <div className="space-y-1">
                   <a
-                    href="/comisiones"
+                    href="/aprende"
                     className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Users size={16} className="mr-3" />
-                    Ver Comisiones
+                    <GraduationCap size={16} className="mr-3" />
+                    Aprende
                   </a>
                   <a
-                    href="/candidatos"
+                    href="/recursos/datos"
                     className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <UserCircle size={16} className="mr-3" />
-                    Ver Aspirantes
+                    <Database size={16} className="mr-3" />
+                    Datos Abiertos
                   </a>
                   <a
-                    href="/noticias"
+                    href="/que-es-justiciapedia"
                     className="flex items-center py-3 px-5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <FileText size={16} className="mr-3" />
-                    Últimas Noticias
+                    <InfoIcon size={16} className="mr-3" />
+                    Qué es Justiciapedia
                   </a>
                 </div>
               </div>
