@@ -3,7 +3,7 @@ import { Users, Calendar, Search, Filter, FileText, Clock, CheckCircle, AlertCir
 import PageLayout from '../components/layout/PageLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import HeroSlider from '../components/ui/HeroSlider';
+import VideoHero from '../components/ui/VideoHero';
 import { commissions } from '../data/commissions';
 
 const Commissions: React.FC = () => {
@@ -13,24 +13,6 @@ const Commissions: React.FC = () => {
   const [sortBy, setSortBy] = useState('date');
   const [showFilters, setShowFilters] = useState(false);
   const [expandedCommission, setExpandedCommission] = useState<string | null>(null);
-
-  const slides = [
-    {
-      title: 'Comisiones de Postulación',
-      description: 'Conoce los procesos de selección de autoridades judiciales en Guatemala.',
-      imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
-    },
-    {
-      title: 'Transparencia en la Selección',
-      description: 'Información detallada sobre los criterios y procedimientos de evaluación.',
-      imageUrl: 'https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg',
-    },
-    {
-      title: 'Participación Ciudadana',
-      description: 'Descubre cómo puedes involucrarte en los procesos de selección.',
-      imageUrl: 'https://images.pexels.com/photos/8111965/pexels-photo-8111965.jpeg',
-    },
-  ];
 
   // Get unique types and statuses for filtering
   const commissionTypes = useMemo(() => {
@@ -137,7 +119,10 @@ const Commissions: React.FC = () => {
       title="Comisiones de Postulación"
       description="Información sobre las comisiones encargadas de los procesos de selección de autoridades judiciales."
     >
-      <HeroSlider slides={slides} />
+      <VideoHero
+        title="Comisiones de Postulación"
+        subtitle="Conoce los procesos de selección de autoridades judiciales en Guatemala"
+      />
 
       {/* Search and Filter Section */}
       <div className="mt-16 mb-8 space-y-4">
