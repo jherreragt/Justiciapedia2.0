@@ -24,7 +24,7 @@ const CandidateProfile: React.FC = () => {
   const candidate = candidates.find(c => c.id === candidateId);
 
   if (isLoading) {
-    return <Loading fullScreen text="Cargando perfil del candidato..." />;
+    return <Loading fullScreen text="Cargando perfil del aspirante..." />;
   }
 
   if (!candidate) {
@@ -32,14 +32,14 @@ const CandidateProfile: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <User size={64} className="mx-auto text-gray-400 mb-4" />
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Candidato no encontrado</h1>
-          <p className="text-gray-600 mb-4">El candidato que buscas no existe o ha sido removido.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Aspirante no encontrado</h1>
+          <p className="text-gray-600 mb-4">El aspirante que buscas no existe o ha sido removido.</p>
           <Link
             to="/candidatos"
             className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
           >
             <ArrowLeft size={16} className="mr-2" />
-            Ver todos los candidatos
+            Ver todos los aspirantes
           </Link>
         </div>
       </div>

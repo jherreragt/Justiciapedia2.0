@@ -4,7 +4,7 @@ export const candidates: CandidateData[] = [
   {
     id: '1',
     name: 'María Eugenia Morales',
-    role: 'Candidata a Magistrada',
+    role: 'Aspirante a Magistrada',
     institution: 'Corte Suprema de Justicia',
     imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
     description: 'Abogada con especialización en derecho constitucional y amplia experiencia en litigio estratégico.',
@@ -90,7 +90,7 @@ export const candidates: CandidateData[] = [
   {
     id: '2',
     name: 'Juan Carlos Rodríguez',
-    role: 'Candidato a Magistrado',
+    role: 'Aspirante a Magistrado',
     institution: 'Corte de Constitucionalidad',
     imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
     description: 'Doctor en Derecho Constitucional con trayectoria académica y publicaciones sobre derechos fundamentales.',
@@ -177,7 +177,7 @@ export const candidates: CandidateData[] = [
   {
     id: '3',
     name: 'Ana Lucía Castillo',
-    role: 'Candidata a Fiscal General',
+    role: 'Aspirante a Fiscal General',
     institution: 'Ministerio Público',
     imageUrl: 'https://images.pexels.com/photos/5325105/pexels-photo-5325105.jpeg',
     description: 'Especialista en derecho penal con experiencia en investigación de casos de corrupción y crimen organizado.',
@@ -258,7 +258,7 @@ export const candidates: CandidateData[] = [
   {
     id: '4',
     name: 'Roberto Méndez',
-    role: 'Candidato a Magistrado',
+    role: 'Aspirante a Magistrado',
     institution: 'Corte Suprema de Justicia',
     imageUrl: 'https://images.pexels.com/photos/8422403/pexels-photo-8422403.jpeg',
     description: 'Juez de carrera con amplia experiencia en tribunales y especialización en derecho mercantil y civil.',
@@ -302,7 +302,7 @@ export const candidates: CandidateData[] = [
   {
     id: '5',
     name: 'Claudia Hernández',
-    role: 'Candidata a Magistrada',
+    role: 'Aspirante a Magistrada',
     institution: 'Salas de Apelaciones',
     imageUrl: 'https://images.pexels.com/photos/6866174/pexels-photo-6866174.jpeg',
     description: 'Abogada con experiencia en litigio en materia laboral y especialización en derechos humanos.',
@@ -345,7 +345,7 @@ export const candidates: CandidateData[] = [
   {
     id: '6',
     name: 'Miguel Ángel Gálvez',
-    role: 'Candidato a Magistrado',
+    role: 'Aspirante a Magistrado',
     institution: 'Corte de Constitucionalidad',
     imageUrl: 'https://images.pexels.com/photos/8422230/pexels-photo-8422230.jpeg',
     description: 'Jurista con amplia trayectoria en casos de alto impacto y especialización en derecho penal internacional.',

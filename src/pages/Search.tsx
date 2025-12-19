@@ -134,7 +134,7 @@ const SearchPage: React.FC = () => {
   const getTypeLabel = (type: string) => {
     switch (type) {
       case 'candidate':
-        return 'Candidato';
+        return 'Aspirante';
       case 'institution':
         return 'Institución';
       case 'commission':
@@ -148,7 +148,7 @@ const SearchPage: React.FC = () => {
 
   const typeFilters = [
     { value: 'all', label: 'Todo', count: filteredResults.length },
-    { value: 'candidate', label: 'Candidatos', count: filteredResults.filter(r => r.type === 'candidate').length },
+    { value: 'candidate', label: 'Aspirantes', count: filteredResults.filter(r => r.type === 'candidate').length },
     { value: 'institution', label: 'Instituciones', count: filteredResults.filter(r => r.type === 'institution').length },
     { value: 'commission', label: 'Comisiones', count: filteredResults.filter(r => r.type === 'commission').length },
     { value: 'news', label: 'Noticias', count: filteredResults.filter(r => r.type === 'news').length },
@@ -166,7 +166,7 @@ const SearchPage: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Buscar candidatos, instituciones, noticias..."
+            placeholder="Buscar aspirantes, instituciones, noticias..."
             className="w-full px-4 py-3 pl-12 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm"
           />
           <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -361,7 +361,7 @@ const SearchPage: React.FC = () => {
             Buscar en JusticiapedIA
           </h3>
           <p className="text-gray-600 mb-6">
-            Encuentra candidatos, instituciones, comisiones y noticias del sistema judicial.
+            Encuentra aspirantes, instituciones, comisiones y noticias del sistema judicial.
           </p>
           <div className="max-w-md mx-auto">
             <div className="grid grid-cols-2 gap-4 text-sm">
@@ -377,7 +377,7 @@ const SearchPage: React.FC = () => {
               <div className="text-left">
                 <h4 className="font-medium text-gray-900 mb-2">Puedes buscar:</h4>
                 <ul className="space-y-1 text-gray-600">
-                  <li>• Nombres de candidatos</li>
+                  <li>• Nombres de aspirantes</li>
                   <li>• Instituciones</li>
                   <li>• Especializaciones</li>
                   <li>• Noticias y análisis</li>

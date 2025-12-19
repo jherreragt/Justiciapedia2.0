@@ -18,18 +18,18 @@ const Candidates: React.FC = () => {
   
   const slides = [
     {
-      title: 'Perfiles de Candidatos',
-      description: 'Conoce a los profesionales que aspiran a cargos en el sistema judicial.',
+      title: 'Aspirantes al Proceso de Formación',
+      description: 'Conoce a los profesionales que aspiran a formar parte del sistema judicial guatemalteco.',
       imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
     },
     {
-      title: 'Proceso de Selección',
-      description: 'Información sobre los procesos de selección y evaluación de candidatos.',
+      title: 'Proceso de Formación',
+      description: 'Información sobre los procesos de selección y formación de aspirantes.',
       imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
     },
     {
-      title: 'Transparencia',
-      description: 'Accede a información detallada sobre la trayectoria de cada candidato.',
+      title: 'Transparencia y Acceso',
+      description: 'Accede a información detallada sobre la trayectoria de cada aspirante.',
       imageUrl: 'https://images.pexels.com/photos/5325105/pexels-photo-5325105.jpeg',
     },
   ];
@@ -249,8 +249,8 @@ const Candidates: React.FC = () => {
 
   return (
     <PageLayout
-      title="Perfiles de Candidatos"
-      description="Información sobre los candidatos a puestos clave en el sistema judicial guatemalteco."
+      title="Aspirantes al Proceso de Formación"
+      description="Información sobre los aspirantes al proceso de formación en el sistema judicial guatemalteco."
     >
       <HeroSlider slides={slides} />
 
@@ -262,7 +262,7 @@ const Candidates: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Buscar por nombre, cargo, institución o especialización..."
+            placeholder="Buscar aspirantes por nombre, cargo, institución o especialización..."
             className="w-full px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm"
           />
           <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -420,7 +420,7 @@ const Candidates: React.FC = () => {
       {/* Results Summary */}
       <div className="mb-6 text-center">
         <p className="text-gray-600">
-          Mostrando {filteredCandidates.length} de {candidates.length} candidatos
+          Mostrando {filteredCandidates.length} de {candidates.length} aspirantes
           {(searchQuery || institutionFilter !== 'all' || specializationFilter !== 'all' || statusFilter !== 'all' || experienceFilter !== 'all') && (
             <span className="ml-1">
               {searchQuery && `para "${searchQuery}"`}
@@ -453,10 +453,10 @@ const Candidates: React.FC = () => {
         <div className="text-center py-12 bg-gray-50 rounded-lg">
           <UserCircle size={48} className="mx-auto text-gray-400 mb-4" />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            No se encontraron candidatos
+            No se encontraron aspirantes
           </h3>
           <p className="text-gray-600 mb-4">
-            No hay candidatos que coincidan con los criterios de búsqueda.
+            No hay aspirantes que coincidan con los criterios de búsqueda.
           </p>
           <Button
             variant="outline"
@@ -470,20 +470,20 @@ const Candidates: React.FC = () => {
       {/* Statistics Section */}
       <div className="mt-16 bg-gray-50 rounded-lg p-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-          Estadísticas de Candidatos
+          Estadísticas de Aspirantes
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-sm text-center">
             <div className="text-3xl font-bold text-primary-600 mb-2">
               {candidates.length}
             </div>
-            <div className="text-gray-600">Total de Candidatos</div>
+            <div className="text-gray-600">Total de Aspirantes</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-sm text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">
               {candidates.filter(c => c.status === 'Activo').length}
             </div>
-            <div className="text-gray-600">Candidatos Activos</div>
+            <div className="text-gray-600">Aspirantes Activos</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-sm text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">
@@ -503,7 +503,7 @@ const Candidates: React.FC = () => {
       {/* Specializations Overview */}
       <div className="mt-8 bg-white rounded-lg p-8 shadow-sm">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-          Candidatos por Especialización
+          Aspirantes por Especialización
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {specializations.map(spec => {
@@ -520,7 +520,7 @@ const Candidates: React.FC = () => {
                   <span className="text-sm text-gray-600">{percentage}%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">{count} candidato{count !== 1 ? 's' : ''}</span>
+                  <span className="text-sm text-gray-600">{count} aspirante{count !== 1 ? 's' : ''}</span>
                   <div className="w-16 bg-gray-200 rounded-full h-2">
                     <div
                       className="bg-primary-600 h-2 rounded-full"
