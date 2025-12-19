@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FileText, Building2, GraduationCap, Network, User, ArrowLeft, Award, BookOpen, Languages, ExternalLink, Calendar, MapPin, Star, Globe } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import CandidateNetwork from '../components/network/CandidateNetwork';
+import Loading from '../components/ui/Loading';
 import { candidates } from '../data/candidates';
 
 const CandidateProfile: React.FC = () => {
   const { candidateId } = useParams<{ candidateId: string }>();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('basic');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [candidateId]);
 
   const candidate = candidates.find(c => c.id === candidateId);
+
+  if (isLoading) {
+    return <Loading fullScreen text="Cargando perfil del candidato..." />;
+  }
 
   if (!candidate) {
     return (

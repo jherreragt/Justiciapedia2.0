@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, Users, FileText, Clock, CheckCircle, AlertCircle, XCircle, ArrowLeft, Download, Eye, MapPin, Phone, Mail, Globe, Award, Target, BookOpen, TrendingUp } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import Loading from '../components/ui/Loading';
 import { commissions } from '../data/commissions';
 import { candidates } from '../data/candidates';
 
@@ -11,8 +12,21 @@ const CommissionProfile: React.FC = () => {
   const { commissionId } = useParams<{ commissionId: string }>();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [commissionId]);
 
   const commission = commissions.find(c => c.id === commissionId);
+
+  if (isLoading) {
+    return <Loading fullScreen text="Cargando información de la comisión..." />;
+  }
 
   if (!commission) {
     return (

@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, User, Clock, Eye, ArrowLeft, Tag, BookOpen } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import SocialShare from '../components/ui/SocialShare';
+import Loading from '../components/ui/Loading';
 import { newsArticles } from '../data/news';
 
 const NewsArticle: React.FC = () => {
   const { articleId } = useParams<{ articleId: string }>();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [articleId]);
 
   const article = newsArticles.find(a => a.id === articleId);
+
+  if (isLoading) {
+    return <Loading fullScreen text="Cargando artículo..." />;
+  }
 
   if (!article) {
     return (

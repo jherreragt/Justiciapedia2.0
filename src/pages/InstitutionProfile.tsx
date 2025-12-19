@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Building2, Clock, Mail, Phone, Globe, Users, Landmark } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent } from '../components/ui/Card';
+import Loading from '../components/ui/Loading';
 import { institutions } from '../data/institutions';
 
 const InstitutionProfile: React.FC = () => {
   const { institutionId } = useParams<{ institutionId: string }>();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [institutionId]);
+
   const institution = institutions.find(inst => inst.id === institutionId);
+
+  if (isLoading) {
+    return <Loading fullScreen text="Cargando información de la institución..." />;
+  }
 
   if (!institution) {
     return (
