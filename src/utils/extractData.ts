@@ -1,4 +1,4 @@
-import csvData from '../data/justiciapedia_-_hoja_1.csv?raw';
+import csvData from '../data/justiciapedia.csv?raw';
 import { parseCSVLine } from './csvParser';
 
 export function extractInstitutions(): string[] {
