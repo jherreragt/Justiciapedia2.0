@@ -325,20 +325,20 @@ const OpenData: React.FC = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-br from-blue-600 to-green-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-teal-600 rounded-2xl p-10 md:p-14 text-center shadow-2xl">
         <div className="max-w-3xl mx-auto text-white">
           <Database size={56} className="mx-auto mb-6 text-blue-100" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Accede a todos los datos
           </h2>
-          <p className="text-lg md:text-xl text-blue-50 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-blue-50 mb-10 leading-relaxed">
             Descarga conjuntos de datos completos en múltiples formatos. Úsalos para investigación, análisis, periodismo de datos o desarrollo de aplicaciones.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               variant="secondary"
               size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+              className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all font-semibold px-8 py-4"
             >
               <Download size={24} className="mr-2" />
               Descargar todos los datos
@@ -346,7 +346,7 @@ const OpenData: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 transition-all"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 transition-all font-semibold px-8 py-4"
             >
               <BookOpen size={24} className="mr-2" />
               Ver documentación API

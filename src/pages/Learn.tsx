@@ -403,20 +403,20 @@ const Learn: React.FC = () => {
       </div>
 
       {/* Inspirational CTA Section */}
-      <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+      <div className="bg-gradient-to-br from-teal-600 via-blue-700 to-blue-600 rounded-2xl p-10 md:p-14 text-center shadow-2xl">
         <div className="max-w-3xl mx-auto text-white">
-          <Lightbulb size={56} className="mx-auto mb-6 text-green-100" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <Lightbulb size={56} className="mx-auto mb-6 text-teal-100" />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             El poder del conocimiento
           </h2>
-          <p className="text-xl md:text-2xl text-blue-50 mb-8 leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-blue-50 mb-10 leading-relaxed font-medium">
             Una ciudadanía informada es una ciudadanía con más poder para exigir justicia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               variant="secondary"
               size="lg"
-              className="bg-white text-green-600 hover:bg-green-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+              className="bg-white text-teal-600 hover:bg-teal-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all font-semibold px-8 py-4"
             >
               <GraduationCap size={24} className="mr-2" />
               Explorar contenidos
@@ -424,7 +424,7 @@ const Learn: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-green-600 transition-all"
+              className="border-2 border-white text-white hover:bg-white hover:text-teal-600 transition-all font-semibold px-8 py-4"
             >
               <ExternalLink size={24} className="mr-2" />
               Compartir recursos

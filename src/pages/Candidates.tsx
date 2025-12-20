@@ -447,41 +447,41 @@ const Candidates: React.FC = () => {
       )}
 
       {/* Statistics Section */}
-      <div className="mt-16 bg-gray-50 rounded-lg p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+      <div className="mt-20 bg-gradient-to-br from-teal-600 via-blue-700 to-blue-600 text-white rounded-2xl p-10 md:p-12 shadow-2xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
           Estadísticas de Aspirantes
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-            <div className="text-3xl font-bold text-primary-600 mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {candidates.length}
             </div>
-            <div className="text-gray-600">Total de Aspirantes</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Total de Aspirantes</div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-            <div className="text-3xl font-bold text-green-600 mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {candidates.filter(c => c.status === 'Activo').length}
             </div>
-            <div className="text-gray-600">Aspirantes Activos</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Aspirantes Activos</div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {Math.round(candidates.reduce((sum, c) => sum + c.yearsOfExperience, 0) / candidates.length)}
             </div>
-            <div className="text-gray-600">Años Promedio de Experiencia</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Años Promedio de Experiencia</div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-            <div className="text-3xl font-bold text-orange-600 mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {specializations.length}
             </div>
-            <div className="text-gray-600">Especializaciones</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Especializaciones</div>
           </div>
         </div>
       </div>
 
       {/* Specializations Overview */}
-      <div className="mt-8 bg-white rounded-lg p-8 shadow-sm">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+      <div className="mt-20 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-10 border border-gray-200 shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
           Aspirantes por Especialización
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

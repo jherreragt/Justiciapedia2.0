@@ -552,8 +552,8 @@ const News: React.FC = () => {
       )}
 
       {/* Categories Overview */}
-      <div className="mt-16 bg-gray-50 rounded-lg p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+      <div className="mt-20 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-10 border border-gray-200 shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
           Artículos por Categoría
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -586,20 +586,20 @@ const News: React.FC = () => {
       </div>
 
       {/* Newsletter Subscription */}
-      <div className="mt-16 bg-primary-600 text-white rounded-lg p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4">Mantente Informado</h2>
-        <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
+      <div className="mt-20 bg-gradient-to-br from-blue-600 via-blue-700 to-teal-600 text-white rounded-2xl p-10 md:p-12 text-center shadow-2xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Mantente Informado</h2>
+        <p className="text-blue-50 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
           Suscríbete a nuestro boletín para recibir las últimas noticias y análisis sobre el sistema judicial guatemalteco.
         </p>
-        <div className="max-w-md mx-auto flex gap-2">
+        <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
           <input
             type="email"
             placeholder="Tu correo electrónico"
-            className="flex-1 px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+            className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white shadow-md"
           />
           <Button
             variant="secondary"
-            className="bg-white text-primary-600 hover:bg-gray-100"
+            className="bg-white text-blue-600 hover:bg-blue-50 shadow-md hover:shadow-lg transition-all font-semibold px-6 py-3"
           >
             Suscribirse
           </Button>

@@ -479,41 +479,41 @@ const Commissions: React.FC = () => {
       )}
 
       {/* Commission Statistics */}
-      <div className="mt-16 bg-gradient-to-r from-primary-600 to-primary-800 text-white rounded-lg p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">
+      <div className="mt-20 bg-gradient-to-br from-blue-600 via-blue-700 to-teal-600 text-white rounded-2xl p-10 md:p-12 shadow-2xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
           Estadísticas del Sistema de Comisiones
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
-            <div className="text-3xl font-bold mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {commissions.length}
             </div>
-            <div className="text-white/80">Total de Comisiones</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Total de Comisiones</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
-            <div className="text-3xl font-bold mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {commissions.filter(c => c.status === 'En proceso').length}
             </div>
-            <div className="text-white/80">En Proceso</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">En Proceso</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
-            <div className="text-3xl font-bold mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {commissions.reduce((sum, c) => sum + c.candidatesCount, 0)}
             </div>
-            <div className="text-white/80">Total Candidatos</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Total Candidatos</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center">
-            <div className="text-3xl font-bold mb-2">
+          <div className="bg-white/15 backdrop-blur-sm p-8 rounded-xl text-center hover:bg-white/20 transition-colors duration-300">
+            <div className="text-4xl md:text-5xl font-bold mb-3">
               {commissions.reduce((sum, c) => sum + c.positionsAvailable, 0)}
             </div>
-            <div className="text-white/80">Plazas Disponibles</div>
+            <div className="text-white/90 text-sm md:text-base font-medium">Plazas Disponibles</div>
           </div>
         </div>
       </div>
 
       {/* Process Timeline Overview */}
-      <div className="mt-16 bg-gray-50 rounded-lg p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+      <div className="mt-20 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-10 border border-gray-200 shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
           Procesos Activos y Próximos
         </h2>
         <div className="space-y-4">

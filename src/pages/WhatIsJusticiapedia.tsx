@@ -278,20 +278,20 @@ Las nóminas deberán remitirse a donde correspondan, con toda la documentación
 
       {/* Guiding Principle Section - Highlighted */}
       <div className="mb-16">
-        <Card className="overflow-hidden bg-gradient-to-br from-green-600 to-blue-700 text-white shadow-2xl">
-          <CardContent className="p-8 md:p-12 lg:p-16 text-center">
+        <Card className="overflow-hidden bg-gradient-to-br from-teal-600 via-blue-700 to-blue-600 text-white shadow-2xl">
+          <CardContent className="p-10 md:p-14 lg:p-20 text-center">
             <div className="max-w-3xl mx-auto">
-              <div className="mb-6">
-                <Shield size={56} className="mx-auto text-green-100" />
+              <div className="mb-8">
+                <Shield size={64} className="mx-auto text-teal-100" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
                 Nuestro principio rector
               </h2>
-              <div className="h-1 w-24 bg-green-300 mx-auto mb-8"></div>
-              <p className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight text-white">
+              <div className="h-1 w-24 bg-teal-300 mx-auto mb-10"></div>
+              <p className="text-3xl md:text-4xl lg:text-6xl font-bold mb-10 leading-tight text-white">
                 A mayor transparencia,<br />menor impunidad.
               </p>
-              <p className="text-lg md:text-xl text-green-50 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl lg:text-2xl text-blue-50 leading-relaxed max-w-2xl mx-auto">
                 Creemos que la información pública, cuando es clara y accesible, se convierte en una herramienta poderosa para combatir la impunidad y fortalecer una sociedad más justa, democrática y equitativa.
               </p>
             </div>
@@ -346,23 +346,23 @@ Las nóminas deberán remitirse a donde correspondan, con toda la documentación
       </div>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl p-8 md:p-10 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+      <div className="bg-gradient-to-br from-blue-50 via-teal-50 to-blue-50 rounded-2xl p-10 md:p-12 text-center border border-blue-200 shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
           Explora Justiciapedia
         </h2>
-        <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
           Descubre cómo funcionan las instituciones, conoce a los aspirantes y accede a información transparente sobre el sector justicia en Guatemala.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={() => window.location.href = '/instituciones'}
-            className="px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-md hover:shadow-lg"
+            className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md hover:shadow-xl transform hover:scale-105"
           >
             Ver Instituciones
           </button>
           <button
             onClick={() => window.location.href = '/candidatos'}
-            className="px-6 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
+            className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all shadow-md hover:shadow-lg"
           >
             Conocer Aspirantes
           </button>
