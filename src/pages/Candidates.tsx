@@ -3,9 +3,27 @@ import { UserCircle, Building2, Filter, Search, Award, BookOpen, Languages, Chev
 import PageLayout from '../components/layout/PageLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import HeroSlider from '../components/ui/HeroSlider';
 import { candidates } from '../data/candidates';
 
 const Candidates: React.FC = () => {
+  const slides = [
+    {
+      title: 'Aspirantes al Proceso de Formación',
+      description: 'Conoce los perfiles de los candidatos que participan en los procesos de selección judicial.',
+      backgroundColor: '#0f766e',
+    },
+    {
+      title: 'Transparencia en la Selección',
+      description: 'Información completa sobre la trayectoria académica y profesional de cada aspirante.',
+      backgroundColor: '#0891b2',
+    },
+    {
+      title: 'Participación Ciudadana',
+      description: 'Accede a datos verificados para una toma de decisiones informada sobre el sistema judicial.',
+      backgroundColor: '#0369a1',
+    },
+  ];
   const [searchQuery, setSearchQuery] = useState('');
   const [institutionFilter, setInstitutionFilter] = useState('all');
   const [specializationFilter, setSpecializationFilter] = useState('all');
@@ -229,12 +247,18 @@ const Candidates: React.FC = () => {
   );
 
   return (
-    <PageLayout
-      title="Aspirantes al Proceso de Formación"
-      description="Información sobre los aspirantes al proceso de formación en el sistema judicial guatemalteco."
-    >
-      {/* Search and Filter Section */}
-      <div className="mt-16 mb-8 space-y-4">
+    <>
+      {/* Hero Slider - Full Width */}
+      <div className="w-full">
+        <HeroSlider slides={slides} />
+      </div>
+
+      <PageLayout
+        title=""
+        description=""
+      >
+        {/* Search and Filter Section */}
+        <div className="mb-8 space-y-4">
         {/* Search Bar */}
         <div className="relative max-w-2xl mx-auto">
           <input
@@ -512,7 +536,8 @@ const Candidates: React.FC = () => {
           })}
         </div>
       </div>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 };
 

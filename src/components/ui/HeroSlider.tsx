@@ -7,6 +7,7 @@ interface Slide {
   description: string;
   videoUrl?: string;
   imageUrl?: string;
+  backgroundColor?: string;
   link?: string;
 }
 
@@ -65,7 +66,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {/* Background Video or Image */}
+          {/* Background Video, Image, or Color */}
           {slide.videoUrl ? (
             <div className="absolute inset-0">
               <video
@@ -80,13 +81,18 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               </video>
               <div className="absolute inset-0 bg-black bg-opacity-50" />
             </div>
-          ) : (
+          ) : slide.imageUrl ? (
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.imageUrl})` }}
             >
               <div className="absolute inset-0 bg-black bg-opacity-50" />
             </div>
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: slide.backgroundColor || '#0f766e' }}
+            />
           )}
 
           {/* Content */}
