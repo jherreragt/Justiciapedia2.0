@@ -168,6 +168,10 @@ export interface CommissionData {
   positionsAvailable: number;
   requirements: string[];
   documents: CommissionDocument[];
+  institution?: string;
+  infografiaURL?: string;
+  cronogramaURL?: string;
+  fotoURL?: string;
 }
 
 export interface NewsArticle {

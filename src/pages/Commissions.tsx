@@ -317,69 +317,113 @@ const Commissions: React.FC = () => {
 
                 return (
                   <Card key={commission.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 group">
-                    <CardHeader className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b-2 border-gray-200">
-                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex flex-wrap items-center gap-3 mb-3">
-                            <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold border ${getStatusColor(commission.status)}`}>
-                              {getStatusIcon(commission.status)}
-                              <span className="ml-1.5">{commission.status}</span>
-                            </span>
-                            <span className="inline-flex items-center bg-cyan-100 text-cyan-800 px-3 py-1.5 rounded-full text-xs font-bold border border-cyan-200">
-                              {commission.type}
-                            </span>
-                            <div className="flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-cyan-50 px-3 py-1.5 rounded-full border border-blue-200">
-                              <TrendingUp size={14} className="text-blue-600" />
-                              <span className="text-xs font-bold text-blue-700">{progress}% completado</span>
-                            </div>
-                          </div>
+                    {commission.fotoURL && (
+                      <div className="h-64 overflow-hidden relative bg-gray-100">
+                        <img
+                          src={commission.fotoURL}
+                          alt={commission.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg';
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all duration-300" />
 
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-cyan-700 transition-colors">
+                        <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                          <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold border backdrop-blur-sm ${getStatusColor(commission.status)}`}>
+                            {getStatusIcon(commission.status)}
+                            <span className="ml-1.5">{commission.status}</span>
+                          </span>
+                        </div>
+
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                          <h3 className="text-3xl font-bold mb-2 leading-tight">
                             {commission.name}
                           </h3>
-                          <p className="text-gray-700 mb-3 leading-relaxed font-medium">{commission.purpose}</p>
+                          {commission.institution && (
+                            <p className="text-white/90 text-lg font-semibold">
+                              {commission.institution}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
-                          <div className="w-full bg-gray-200 rounded-full h-3 mb-3 overflow-hidden shadow-inner">
-                            <div
-                              className="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full transition-all duration-500 shadow-lg"
-                              style={{ width: `${progress}%` }}
-                            ></div>
+                    <CardHeader className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b-2 border-gray-200">
+                      <div className="space-y-4">
+                        {!commission.fotoURL && (
+                          <div>
+                            <div className="flex flex-wrap items-center gap-3 mb-3">
+                              <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold border ${getStatusColor(commission.status)}`}>
+                                {getStatusIcon(commission.status)}
+                                <span className="ml-1.5">{commission.status}</span>
+                              </span>
+                              {commission.institution && (
+                                <span className="inline-flex items-center bg-cyan-100 text-cyan-800 px-3 py-1.5 rounded-full text-xs font-bold border border-cyan-200">
+                                  {commission.institution}
+                                </span>
+                              )}
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-cyan-700 transition-colors">
+                              {commission.name}
+                            </h3>
                           </div>
+                        )}
 
-                          {currentPhase && (
-                            <div className="inline-flex items-center gap-2 bg-amber-50 px-3 py-2 rounded-lg border border-amber-200">
-                              <PlayCircle size={16} className="text-amber-600" />
-                              <span className="text-sm font-bold text-gray-900">Fase actual:</span>
-                              <span className="text-sm font-medium text-amber-700">{currentPhase.name}</span>
+                        {commission.description && (
+                          <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-4 rounded-xl border-2 border-cyan-200">
+                            <p className="text-gray-700 leading-relaxed font-medium">{commission.description}</p>
+                          </div>
+                        )}
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {commission.startDate && (
+                            <div className="flex items-start gap-3 p-4 bg-white rounded-xl border-2 border-gray-200">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                                <Calendar size={20} className="text-white" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Fecha de Elección</p>
+                                <p className="text-sm font-bold text-gray-900">{formatDate(commission.startDate)}</p>
+                              </div>
+                            </div>
+                          )}
+                          {commission.endDate && (
+                            <div className="flex items-start gap-3 p-4 bg-white rounded-xl border-2 border-gray-200">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                                <Calendar size={20} className="text-white" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Fecha Proyectada</p>
+                                <p className="text-sm font-bold text-gray-900">{formatDate(commission.endDate)}</p>
+                              </div>
                             </div>
                           )}
                         </div>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                           <Button
                             variant="primary"
-                            size="sm"
                             onClick={() => window.location.href = `/comisiones/${commission.id}`}
-                            className="hover:shadow-lg transition-shadow"
+                            className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                           >
-                            <Eye size={16} className="mr-1.5" />
-                            Ver detalles
+                            <Eye size={18} className="mr-2" />
+                            Ver Perfil Completo
                           </Button>
                           <Button
                             variant="outline"
-                            size="sm"
                             onClick={() => toggleCommissionDetails(commission.id)}
                             className="hover:bg-gray-50"
                           >
                             {expandedCommission === commission.id ? (
                               <>
                                 <ChevronDown size={16} className="mr-1.5 rotate-180 transition-transform" />
-                                Ocultar
+                                Ocultar Detalles
                               </>
                             ) : (
                               <>
                                 <ChevronDown size={16} className="mr-1.5" />
-                                Resumen
+                                Ver Detalles
                               </>
                             )}
                           </Button>
@@ -451,98 +495,116 @@ const Commissions: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Documents Preview */}
-                      <div className="mb-6">
-                        <h4 className="font-bold text-gray-900 mb-4 flex items-center text-lg">
-                          <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
-                            <FileText size={16} className="text-blue-600" />
-                          </div>
-                          Documentos Disponibles
-                        </h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {commission.documents.slice(0, 4).map((doc, index) => (
-                            <a
-                              key={index}
-                              href={doc.url}
-                              className="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all group"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <div className="flex items-center gap-3 min-w-0 flex-1">
-                                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                                  <FileText size={18} className="text-blue-600" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                  <div className="text-sm font-bold text-gray-900 truncate group-hover:text-blue-700 transition-colors">{doc.title}</div>
-                                  <div className="text-xs text-gray-600 font-medium">{doc.type}</div>
-                                </div>
-                              </div>
-                              <Download size={16} className="text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
-                            </a>
-                          ))}
-                          {commission.documents.length > 4 && (
-                            <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl border-2 border-gray-200 text-gray-600 text-sm font-bold">
-                              +{commission.documents.length - 4} documentos más
+                      {/* Requirements Preview */}
+                      {commission.requirements && commission.requirements.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="font-bold text-gray-900 mb-4 flex items-center text-lg">
+                            <div className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center mr-3">
+                              <CheckCircle size={16} className="text-purple-600" />
                             </div>
-                          )}
+                            Requisitos Principales
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {commission.requirements.slice(0, 4).map((requirement, index) => (
+                              <div key={index} className="flex items-start gap-3 p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border-2 border-purple-200">
+                                <div className="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <CheckCircle size={14} className="text-white" />
+                                </div>
+                                <span className="text-sm text-gray-700 font-medium flex-1">{requirement}</span>
+                              </div>
+                            ))}
+                            {commission.requirements.length > 4 && (
+                              <div className="flex items-center justify-center p-3 bg-gray-100 rounded-xl border-2 border-gray-200 text-gray-600 text-sm font-bold">
+                                +{commission.requirements.length - 4} requisitos más
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
+                      )}
+
+                      {/* Documents Preview */}
+                      {commission.documents && commission.documents.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="font-bold text-gray-900 mb-4 flex items-center text-lg">
+                            <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
+                              <FileText size={16} className="text-blue-600" />
+                            </div>
+                            Documentos Disponibles
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {commission.documents.map((doc, index) => (
+                              <a
+                                key={index}
+                                href={doc.url}
+                                className="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all group"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <div className="flex items-center gap-3 min-w-0 flex-1">
+                                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                                    <FileText size={18} className="text-blue-600" />
+                                  </div>
+                                  <div className="min-w-0 flex-1">
+                                    <div className="text-sm font-bold text-gray-900 truncate group-hover:text-blue-700 transition-colors">{doc.title}</div>
+                                    <div className="text-xs text-gray-600 font-medium">{doc.type}</div>
+                                  </div>
+                                </div>
+                                <Download size={16} className="text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       {/* Expanded Details */}
                       {expandedCommission === commission.id && (
                         <div className="border-t-2 border-gray-200 pt-6 space-y-6 animate-in slide-in-from-top duration-300">
-                          <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-xl border-2 border-cyan-200">
-                            <h4 className="font-bold text-gray-900 mb-3 text-lg">Descripción Detallada</h4>
-                            <p className="text-gray-700 leading-relaxed">{commission.description}</p>
-                          </div>
-
-                          <div>
-                            <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center">
-                              <Users size={20} className="mr-2 text-cyan-600" />
-                              Integrantes Principales
-                            </h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              {commission.members.slice(0, 4).map((member, index) => (
-                                <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-cyan-300 hover:shadow-md transition-all">
-                                  {member.imageUrl ? (
-                                    <img
-                                      src={member.imageUrl}
-                                      alt={member.name}
-                                      className="w-14 h-14 rounded-full object-cover border-2 border-cyan-200"
-                                    />
-                                  ) : (
-                                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center border-2 border-cyan-200">
-                                      <Users size={20} className="text-cyan-600" />
+                          {commission.members && commission.members.length > 0 && (
+                            <div>
+                              <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center">
+                                <Users size={20} className="mr-2 text-cyan-600" />
+                                Integrantes de la Comisión
+                              </h4>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {commission.members.map((member, index) => (
+                                  <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-cyan-300 hover:shadow-md transition-all">
+                                    {member.imageUrl ? (
+                                      <img
+                                        src={member.imageUrl}
+                                        alt={member.name}
+                                        className="w-14 h-14 rounded-full object-cover border-2 border-cyan-200"
+                                      />
+                                    ) : (
+                                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center border-2 border-cyan-200">
+                                        <Users size={20} className="text-cyan-600" />
+                                      </div>
+                                    )}
+                                    <div className="min-w-0 flex-1">
+                                      <h5 className="font-bold text-gray-900 text-sm truncate">{member.name}</h5>
+                                      <p className="text-xs text-cyan-700 font-bold">{member.role}</p>
+                                      <p className="text-xs text-gray-600 truncate font-medium">{member.institution}</p>
                                     </div>
-                                  )}
-                                  <div className="min-w-0 flex-1">
-                                    <h5 className="font-bold text-gray-900 text-sm truncate">{member.name}</h5>
-                                    <p className="text-xs text-cyan-700 font-bold">{member.role}</p>
-                                    <p className="text-xs text-gray-600 truncate font-medium">{member.institution}</p>
                                   </div>
-                                </div>
-                              ))}
+                                ))}
+                              </div>
                             </div>
-                          </div>
+                          )}
 
-                          <div>
-                            <h4 className="font-bold text-gray-900 mb-4 text-lg">Requisitos Principales</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                              {commission.requirements.slice(0, 6).map((requirement, index) => (
-                                <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                                  <div className="w-6 h-6 rounded-full bg-cyan-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <CheckCircle size={14} className="text-white" />
+                          {commission.requirements && commission.requirements.length > 4 && (
+                            <div>
+                              <h4 className="font-bold text-gray-900 mb-4 text-lg">Todos los Requisitos</h4>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                {commission.requirements.map((requirement, index) => (
+                                  <div key={index} className="flex items-start gap-3 p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border-2 border-purple-200">
+                                    <div className="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                      <CheckCircle size={14} className="text-white" />
+                                    </div>
+                                    <span className="text-sm text-gray-700 font-medium flex-1">{requirement}</span>
                                   </div>
-                                  <span className="text-sm text-gray-700 font-medium">{requirement}</span>
-                                </div>
-                              ))}
-                              {commission.requirements.length > 6 && (
-                                <div className="flex items-center justify-center p-3 bg-gray-100 rounded-lg border border-gray-200 text-gray-600 text-sm font-bold">
-                                  +{commission.requirements.length - 6} requisitos adicionales
-                                </div>
-                              )}
+                                ))}
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                       )}
 
