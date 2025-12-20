@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { FileText, Building2, GraduationCap, User, ArrowLeft, Award, BookOpen, Languages, ExternalLink, Calendar, MapPin, Star, Globe } from 'lucide-react';
+import { FileText, Building2, GraduationCap, User, ArrowLeft, Award, BookOpen, Languages, ExternalLink, Calendar, MapPin, Star, Globe, Info } from 'lucide-react';
 import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
@@ -494,6 +494,50 @@ const CandidateProfile: React.FC = () => {
 
         <div className="mt-6">
           {renderTabContent()}
+        </div>
+
+        {/* Disclaimers and Source */}
+        <div className="mt-8">
+          <Card className="bg-blue-50 border-blue-200">
+            <CardContent className="py-6">
+              <div className="flex items-start gap-3 mb-4">
+                <Info className="text-blue-600 flex-shrink-0 mt-1" size={20} />
+                <div>
+                  <h3 className="font-semibold text-blue-900 mb-2">Fuente de Información</h3>
+                  <p className="text-blue-800 text-sm">
+                    Información proporcionada por Comisión de Postulación
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-blue-200 pt-4 mt-4 space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-2">
+                    Artículo 30: Publicidad de los actos administrativos
+                  </h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Todos los actos de la administración son públicos. Los interesados tienen derecho a obtener,
+                    en cualquier tiempo, informes, copias, reproducciones y certificaciones que soliciten y la
+                    exhibición de los expedientes que deseen consultar, salvo que se trate de asuntos militares
+                    o diplomáticos de seguridad nacional, o de datos suministrados por particulares bajo garantía
+                    de confidencia.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-2">
+                    Artículo 31: Acceso a archivos y registros estatales
+                  </h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Toda persona tiene el derecho de conocer lo que de ella conste en archivos, fichas o cualquier
+                    otra forma de registros estatales, y la finalidad a que se dedica esta información, así como a
+                    corrección, rectificación y actualización. Quedan prohibidos los registros y archivos de filiación
+                    política, excepto los propios de las autoridades electorales y de los partidos políticos.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="mt-8">
