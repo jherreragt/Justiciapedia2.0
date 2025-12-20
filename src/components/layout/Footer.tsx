@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Instagram, Scale, ExternalLink, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Twitter, Instagram, Scale, ExternalLink, Youtube } from 'lucide-react';
 import { FOOTER_SECTIONS, SOCIAL_LINKS, SITE_NAME } from '../../utils/constants';
 import Container from '../ui/Container';
 
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-primary-900 text-white">
       {/* Main Footer Content */}
-      <div className="border-b border-primary-800">
+      <div>
         <Container className="section-padding">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* About Site */}
@@ -86,93 +86,6 @@ const Footer: React.FC = () => {
                 </ul>
               </div>
             ))}
-          </div>
-        </Container>
-      </div>
-
-      {/* Contact Info & Legal */}
-      <div className="bg-primary-950">
-        <Container>
-          <div className="py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {/* Contact Information */}
-              <div>
-                <h4 className="font-semibold text-white mb-4">Información de Contacto</h4>
-                <div className="space-y-3">
-                  <a
-                    href="mailto:contacto@justiciapedia.org.gt"
-                    className="flex items-center text-primary-200 hover:text-white transition-colors duration-200 group"
-                  >
-                    <Mail size={16} className="mr-3 group-hover:scale-110 transition-transform" />
-                    contacto@justiciapedia.org.gt
-                  </a>
-                  <a
-                    href="tel:+50222334455"
-                    className="flex items-center text-primary-200 hover:text-white transition-colors duration-200 group"
-                  >
-                    <Phone size={16} className="mr-3 group-hover:scale-110 transition-transform" />
-                    +502 2233-4455
-                  </a>
-                  <div className="flex items-start text-primary-200">
-                    <MapPin size={16} className="mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Ciudad de Guatemala, Guatemala</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mission Statement */}
-              <div>
-                <h4 className="font-semibold text-white mb-4">Nuestra Misión</h4>
-                <p className="text-primary-200 text-sm leading-relaxed">
-                  Fortalecer la democracia guatemalteca mediante la promoción de la transparencia
-                  y la rendición de cuentas en el sistema de justicia.
-                </p>
-              </div>
-
-              {/* Newsletter Signup */}
-              <div>
-                <h4 className="font-semibold text-white mb-4">Mantente Informado</h4>
-                <p className="text-primary-200 text-sm mb-4">
-                  Recibe actualizaciones sobre procesos judiciales y noticias importantes.
-                </p>
-                <div className="flex">
-                  <input
-                    type="email"
-                    placeholder="Tu email"
-                    className="flex-1 px-3 py-2 bg-primary-800 border border-primary-700 rounded-l-lg text-white placeholder-primary-300 focus:outline-none focus:border-primary-500"
-                  />
-                  <button className="px-4 py-2 bg-white text-primary-900 rounded-r-lg hover:bg-primary-100 transition-colors font-medium">
-                    Suscribir
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-primary-800">
-              <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 mb-4 md:mb-0">
-                <p className="text-primary-300 text-sm">
-                  © {currentYear} {SITE_NAME}. Todos los derechos reservados.
-                </p>
-                <div className="flex space-x-4 text-sm">
-                  <a href="/legal/privacidad" className="text-primary-300 hover:text-white transition-colors">
-                    Privacidad
-                  </a>
-                  <a href="/legal/terminos" className="text-primary-300 hover:text-white transition-colors">
-                    Términos
-                  </a>
-                  <a href="/legal/cookies" className="text-primary-300 hover:text-white transition-colors">
-                    Cookies
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-4 text-sm text-primary-300">
-                <span>Hecho con</span>
-                <span className="text-red-400">♥</span>
-                <span>para Guatemala</span>
-              </div>
-            </div>
           </div>
         </Container>
       </div>
