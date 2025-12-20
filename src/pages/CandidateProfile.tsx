@@ -5,6 +5,7 @@ import ProfileLayout from '../components/layout/ProfileLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import Loading from '../components/ui/Loading';
+import SocialShare from '../components/ui/SocialShare';
 import { candidates } from '../data/candidates';
 
 const CandidateProfile: React.FC = () => {
@@ -426,24 +427,42 @@ const CandidateProfile: React.FC = () => {
     }
   };
 
+  const profileUrl = window.location.href;
+  const shareTitle = `${candidate.name} - ${candidate.role}`;
+  const shareDescription = `Perfil de ${candidate.name}, aspirante a ${candidate.role} en ${candidate.institution}`;
+
   return (
     <ProfileLayout
       title={candidate.name}
       subtitle={candidate.role}
       imageUrl={candidate.imageUrl}
       headerContent={
-        <div className="flex flex-col md:flex-row md:items-center gap-4 mt-4">
-          <div className="flex items-center text-white/80">
-            <Building2 size={16} className="mr-2" />
-            {candidate.institution}
+        <div className="space-y-4 mt-4">
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
+            <div className="flex items-center text-white/80">
+              <Building2 size={16} className="mr-2" />
+              {candidate.institution}
+            </div>
+            <div className="flex items-center text-white/80">
+              <Award size={16} className="mr-2" />
+              {candidate.specialization}
+            </div>
+            <div className="flex items-center text-white/80">
+              <Calendar size={16} className="mr-2" />
+              {candidate.yearsOfExperience} años de experiencia
+            </div>
           </div>
-          <div className="flex items-center text-white/80">
-            <Award size={16} className="mr-2" />
-            {candidate.specialization}
-          </div>
-          <div className="flex items-center text-white/80">
-            <Calendar size={16} className="mr-2" />
-            {candidate.yearsOfExperience} años de experiencia
+          <div className="flex items-center gap-3">
+            <span className="text-white/90 text-sm font-medium">Compartir perfil:</span>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-1">
+              <SocialShare
+                url={profileUrl}
+                title={shareTitle}
+                description={shareDescription}
+                variant="buttons"
+                className="social-share-light"
+              />
+            </div>
           </div>
         </div>
       }
@@ -477,28 +496,43 @@ const CandidateProfile: React.FC = () => {
           {renderTabContent()}
         </div>
 
-        <div className="mt-8 flex flex-col md:flex-row justify-between gap-4">
-          <Button
-            variant="outline"
-            onClick={() => navigate(-1)}
-          >
-            <ArrowLeft size={16} className="mr-2" />
-            Volver
-          </Button>
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              onClick={() => navigate(`/comisiones/${candidate.commissionId}`)}
-            >
-              Ver comisión
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => navigate('/candidatos')}
-            >
-              Ver todos los candidatos
-            </Button>
-          </div>
+        <div className="mt-8">
+          <Card>
+            <CardContent className="py-6">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-gray-700 font-medium">Compartir perfil:</span>
+                  <SocialShare
+                    url={profileUrl}
+                    title={shareTitle}
+                    description={shareDescription}
+                    variant="buttons"
+                  />
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate(-1)}
+                  >
+                    <ArrowLeft size={16} className="mr-2" />
+                    Volver
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate(`/comisiones/${candidate.commissionId}`)}
+                  >
+                    Ver comisión
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={() => navigate('/candidatos')}
+                  >
+                    Ver todos los candidatos
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </ProfileLayout>

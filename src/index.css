@@ -270,7 +270,7 @@
     @apply hover:scale-105 hover:shadow-medium;
     @apply active:scale-95;
   }
-  
+
   .interactive-subtle {
     @apply transition-all duration-200 ease-in-out;
     @apply hover:shadow-soft hover:-translate-y-1;
@@ -279,6 +279,17 @@
   /* Border utilities */
   .border-gradient {
     border-image: linear-gradient(135deg, theme('colors.primary.400'), theme('colors.primary.600')) 1;
+  }
+
+  /* Social share button styles */
+  .social-share-light button {
+    @apply bg-white/20 border-white/30 text-white;
+    @apply hover:bg-white hover:text-gray-900 hover:border-white;
+    @apply backdrop-blur-sm;
+  }
+
+  .social-share-light button:hover {
+    @apply transform scale-105;
   }
 }
 
