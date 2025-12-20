@@ -48,9 +48,9 @@ const CandidateProfile: React.FC = () => {
 
   const tabs = [
     { id: 'basic', label: 'Datos Básicos', icon: FileText },
-    { id: 'experience', label: 'Experiencia', icon: Building2 },
-    { id: 'education', label: 'Formación', icon: GraduationCap },
-    { id: 'achievements', label: 'Logros', icon: Award },
+    { id: 'experience', label: 'Experiencia Profesional', icon: Building2 },
+    { id: 'education', label: 'Formación Académica', icon: GraduationCap },
+    { id: 'achievements', label: 'Logros y Reconocimientos', icon: Award },
   ];
 
   const getStatusColor = (status: string) => {
@@ -90,6 +90,18 @@ const CandidateProfile: React.FC = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1">Institución</label>
                       <p className="text-gray-900">{candidate.institution}</p>
                     </div>
+                    {candidate.commission && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Comisión</label>
+                        <p className="text-gray-900">{candidate.commission}</p>
+                      </div>
+                    )}
+                    {candidate.election && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Elección</label>
+                        <p className="text-gray-900">{candidate.election}</p>
+                      </div>
+                    )}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Estado</label>
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(candidate.status)}`}>
@@ -98,61 +110,157 @@ const CandidateProfile: React.FC = () => {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Especialización</label>
-                      <p className="text-gray-900">{candidate.specialization}</p>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Años de Experiencia</label>
-                      <p className="text-gray-900">{candidate.yearsOfExperience} años</p>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Idiomas</label>
-                      <div className="flex flex-wrap gap-2">
-                        {candidate.languages.map((language, index) => (
-                          <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
-                            {language}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    {candidate.socialMedia && (
+                    {candidate.profession && (
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Redes Sociales</label>
-                        <div className="flex space-x-3">
-                          {candidate.socialMedia.linkedin && (
-                            <a
-                              href={candidate.socialMedia.linkedin}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-600 hover:text-blue-700"
-                            >
-                              <ExternalLink size={20} />
-                            </a>
-                          )}
-                          {candidate.socialMedia.twitter && (
-                            <a
-                              href={candidate.socialMedia.twitter}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-400 hover:text-blue-500"
-                            >
-                              <ExternalLink size={20} />
-                            </a>
-                          )}
-                        </div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Profesión</label>
+                        <p className="text-gray-900">{candidate.profession}</p>
+                      </div>
+                    )}
+                    {candidate.gender && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Sexo</label>
+                        <p className="text-gray-900">{candidate.gender}</p>
+                      </div>
+                    )}
+                    {candidate.maritalStatus && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Estado Civil</label>
+                        <p className="text-gray-900">{candidate.maritalStatus}</p>
+                      </div>
+                    )}
+                    {candidate.barAssociationNumber && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">No. Colegiado</label>
+                        <p className="text-gray-900 font-mono">{candidate.barAssociationNumber}</p>
+                      </div>
+                    )}
+                    {candidate.yearsOfExperienceText && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Experiencia</label>
+                        <p className="text-gray-900">{candidate.yearsOfExperienceText}</p>
+                      </div>
+                    )}
+                    {candidate.workStartDate && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Fecha Inicio Laboral</label>
+                        <p className="text-gray-900">{candidate.workStartDate}</p>
+                      </div>
+                    )}
+                    {candidate.department && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Departamento</label>
+                        <p className="text-gray-900">{candidate.department}</p>
                       </div>
                     )}
                   </div>
                 </div>
-                <div className="mt-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Descripción</label>
-                  <p className="text-gray-900 leading-relaxed">{candidate.description}</p>
-                </div>
+                {candidate.summary && (
+                  <div className="mt-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Resumen</label>
+                    <p className="text-gray-900 leading-relaxed whitespace-pre-wrap">{candidate.summary}</p>
+                  </div>
+                )}
+                {candidate.description && (
+                  <div className="mt-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Descripción</label>
+                    <p className="text-gray-900 leading-relaxed">{candidate.description}</p>
+                  </div>
+                )}
               </CardContent>
             </Card>
 
-            {candidate.certifications.length > 0 && (
+            {candidate.humanProjection && (
+              <Card>
+                <CardHeader>
+                  <h3 className="text-lg font-semibold flex items-center">
+                    <User size={20} className="mr-2 text-primary-600" />
+                    Proyección Humana
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-900 leading-relaxed whitespace-pre-wrap">{candidate.humanProjection}</p>
+                </CardContent>
+              </Card>
+            )}
+
+            {(candidate.cvUrl || candidate.fileUrl) && (
+              <Card>
+                <CardHeader>
+                  <h3 className="text-lg font-semibold flex items-center">
+                    <FileText size={20} className="mr-2 text-primary-600" />
+                    Documentos
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {candidate.cvUrl && (
+                      <a
+                        href={candidate.cvUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border border-blue-200 hover:bg-blue-100 transition-colors"
+                      >
+                        <div className="flex items-center">
+                          <FileText size={20} className="mr-3 text-blue-600" />
+                          <span className="font-medium text-blue-900">Currículum Vitae</span>
+                        </div>
+                        <ExternalLink size={16} className="text-blue-600" />
+                      </a>
+                    )}
+                    {candidate.fileUrl && (
+                      <a
+                        href={candidate.fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200 hover:bg-green-100 transition-colors"
+                      >
+                        <div className="flex items-center">
+                          <FileText size={20} className="mr-3 text-green-600" />
+                          <span className="font-medium text-green-900">Expediente Completo</span>
+                        </div>
+                        <ExternalLink size={16} className="text-green-600" />
+                      </a>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {(candidate.sourceText || candidate.sourceUrl) && (
+              <Card>
+                <CardHeader>
+                  <h3 className="text-lg font-semibold flex items-center">
+                    <Globe size={20} className="mr-2 text-primary-600" />
+                    Fuente de Información
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {candidate.sourceText && (
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Fuente</label>
+                        <p className="text-gray-900">{candidate.sourceText}</p>
+                      </div>
+                    )}
+                    {candidate.sourceUrl && (
+                      <div>
+                        <a
+                          href={candidate.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-blue-600 hover:text-blue-700"
+                        >
+                          Ver fuente completa
+                          <ExternalLink size={14} className="ml-1" />
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {candidate.certifications && candidate.certifications.length > 0 && (
               <Card>
                 <CardHeader>
                   <h3 className="text-lg font-semibold flex items-center">
@@ -185,22 +293,30 @@ const CandidateProfile: React.FC = () => {
               </h3>
             </CardHeader>
             <CardContent>
-              <div className="space-y-6">
-                {candidate.experience.map((exp, index) => (
-                  <div key={index} className="relative pl-8 pb-6 border-l-2 border-primary-200 last:border-l-0 last:pb-0">
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border">
-                      <h4 className="font-semibold text-gray-900 text-lg">{exp.position}</h4>
-                      <p className="text-primary-600 font-medium mb-1">{exp.institution}</p>
-                      <div className="flex items-center text-sm text-gray-600 mb-3">
-                        <Calendar size={14} className="mr-1" />
-                        <span>{exp.period}</span>
+              {candidate.professionalExperience ? (
+                <div className="prose max-w-none">
+                  <p className="text-gray-900 leading-relaxed whitespace-pre-wrap">{candidate.professionalExperience}</p>
+                </div>
+              ) : candidate.experience && candidate.experience.length > 0 ? (
+                <div className="space-y-6">
+                  {candidate.experience.map((exp, index) => (
+                    <div key={index} className="relative pl-8 pb-6 border-l-2 border-primary-200 last:border-l-0 last:pb-0">
+                      <div className="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
+                      <div className="bg-white p-4 rounded-lg shadow-sm border">
+                        <h4 className="font-semibold text-gray-900 text-lg">{exp.position}</h4>
+                        <p className="text-primary-600 font-medium mb-1">{exp.institution}</p>
+                        <div className="flex items-center text-sm text-gray-600 mb-3">
+                          <Calendar size={14} className="mr-1" />
+                          <span>{exp.period}</span>
+                        </div>
+                        <p className="text-gray-700">{exp.description}</p>
                       </div>
-                      <p className="text-gray-700">{exp.description}</p>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 italic">No se ha proporcionado información de experiencia profesional.</p>
+              )}
             </CardContent>
           </Card>
         );
@@ -215,28 +331,36 @@ const CandidateProfile: React.FC = () => {
               </h3>
             </CardHeader>
             <CardContent>
-              <div className="space-y-6">
-                {candidate.education.map((edu, index) => (
-                  <div key={index} className="relative pl-8 pb-6 border-l-2 border-primary-200 last:border-l-0 last:pb-0">
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border">
-                      <h4 className="font-semibold text-gray-900 text-lg">{edu.degree}</h4>
-                      <p className="text-primary-600 font-medium mb-1">{edu.institution}</p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-gray-600">
-                          <Calendar size={14} className="mr-1" />
-                          <span>Año: {edu.year}</span>
+              {candidate.academicExperience ? (
+                <div className="prose max-w-none">
+                  <p className="text-gray-900 leading-relaxed whitespace-pre-wrap">{candidate.academicExperience}</p>
+                </div>
+              ) : candidate.education && candidate.education.length > 0 ? (
+                <div className="space-y-6">
+                  {candidate.education.map((edu, index) => (
+                    <div key={index} className="relative pl-8 pb-6 border-l-2 border-primary-200 last:border-l-0 last:pb-0">
+                      <div className="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
+                      <div className="bg-white p-4 rounded-lg shadow-sm border">
+                        <h4 className="font-semibold text-gray-900 text-lg">{edu.degree}</h4>
+                        <p className="text-primary-600 font-medium mb-1">{edu.institution}</p>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center text-sm text-gray-600">
+                            <Calendar size={14} className="mr-1" />
+                            <span>Año: {edu.year}</span>
+                          </div>
+                          {edu.honors && (
+                            <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-medium">
+                              {edu.honors}
+                            </span>
+                          )}
                         </div>
-                        {edu.honors && (
-                          <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-medium">
-                            {edu.honors}
-                          </span>
-                        )}
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 italic">No se ha proporcionado información de formación académica.</p>
+              )}
             </CardContent>
           </Card>
         );

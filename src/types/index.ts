@@ -102,6 +102,25 @@ export interface CandidateData {
     twitter?: string;
     facebook?: string;
   };
+  // Additional fields from CSV
+  candidateNumber?: string;
+  gender?: string;
+  department?: string;
+  workStartDate?: string;
+  barAssociationNumber?: string;
+  maritalStatus?: string;
+  profession?: string;
+  yearsOfExperienceText?: string;
+  professionalExperience?: string;
+  academicExperience?: string;
+  humanProjection?: string;
+  sourceText?: string;
+  sourceUrl?: string;
+  cvUrl?: string;
+  fileUrl?: string;
+  summary?: string;
+  commission?: string;
+  election?: string;
 }
 
 export interface ProfileData {
