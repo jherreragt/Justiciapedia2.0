@@ -1,9 +1,15 @@
-import React from 'react';
-import { AlertCircle, Target, Eye, Users, Shield, BookOpen, TrendingUp, CheckCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { AlertCircle, Target, Eye, Users, Shield, BookOpen, TrendingUp, CheckCircle, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import PageLayout from '../components/layout/PageLayout';
 import Card, { CardContent, CardHeader } from '../components/ui/Card';
 
 const WhatIsJusticiapedia: React.FC = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   const problems = [
     {
       icon: AlertCircle,
@@ -52,6 +58,109 @@ const WhatIsJusticiapedia: React.FC = () => {
       icon: Target,
       title: 'Promover participación informada',
       description: 'Para que la ciudadanía pueda opinar, vigilar y exigir con conocimiento.'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: '¿Qué es Justiciapedia?',
+      answer: `Para hablar de Justiciapedia es necesario mencionar una serie de elementos que generan contexto al respecto. Por ejemplo, históricamente el poder judicial y el entorno referente de los demás actores que integran el sector justicia ha sido abordado únicamente por una pequeña élite técnica que comprende los vericuetos y complejidades de la administración de justicia. Esto en un país como Guatemala donde las brechas de desigualdad y el poco acceso a educación superior y lo cerrado de los clanes profesionales hace que la justicia vista como un todo sea un tema poco abordado, poco comprendido y, por lo tanto, ajeno para los guatemaltecos y guatemaltecas en términos generales.
+
+Teniendo esto como un pequeño antecedente, notamos que ese es uno de los retos grandes que están pendientes en Guatemala y que una forma de empapar a la población pasa por la mediatización de los contenidos y la presentación amigable de los elementos y procesos más técnicos y complejos, como los diversos procesos de elección de autoridades en donde se implementan los procedimientos desarrollados por Comisiones de Postulación. En ese mismo sentido, consideramos que estos temas deben ser difundidos y hacer que el acceso a este tipo de información sea democratizado, compartido y entendible.
+
+Por lo tanto, vemos a Justiciapedia como esa herramienta que busca acercar a la ciudadanía en general a un campo que históricamente ha sido reservado para juristas y académicos, para así abordar un tema complejo y muy específico desde una perspectiva más accesible y atractiva para el público en general.`
+    },
+    {
+      question: '¿Qué queremos con Justiciapedia?',
+      answer: `En términos sencillos, queremos acercar a guatemaltecos y guatemaltecas con el sector justicia, hacer que sea comprensible un tema que nos debe interesar a todos y todas. Esto buscamos concretarlo al mostrar de forma interactiva y sencilla los rangos de alcance que tiene el Organismo Judicial y demás actores que intervienen en proceso judicial, es decir, Ministerio Público, Oficina del Procurador de los Derechos Humanos, Instituto Nacional de Ciencias Forenses, Procuraduría General de la Nación, Corte de Constitucionalidad, Consejo de la Carrera Judicial, Contraloría General de Cuentas, Instituto de la Defensa Pública Penal y Tribunal Supremo Electoral. Finalmente, es necesario remarcar que hacemos esto porque creemos qué ante más transparencia, menos impunidad e injusticia y esto es fundamental para la construcción de sociedades más equitativas, democráticas y prósperas.`
+    },
+    {
+      question: '¿Por qué trabajar con Justiciapedia?',
+      answer: `Porque en Red Ciudadana creemos que el acceso a la justicia es un derecho inalienable para todos y todas, también porque creemos que la justicia y su administración debe tener una relación funcional y activa entre usuarios y los diversos actores, en donde los habitantes sepan quienes son los profesionales del derecho encargados de dirimir las controversias suscitadas en su comunidad. También porque creemos que una forma de atacar las brechas que nos dividen a guatemaltecos y guatemaltecas pasa también por transparentar el sector justicia; para que podamos ver a la impunidad como ese estadio que podemos combatir con trabajo continuo, comprometido y multisectorial.`
+    },
+    {
+      question: '¿Cuál es el fundamento legal de Justiciapedia?',
+      answer: `Justiciapedia busca configurar entre sí la transparencia que nos otorga el libre acceso a la información o habeas data plasmado en la Constitución Política de la República de Guatemala. Asimismo, en el legítimo ejercicio del derecho de petición y empleando la Ley de Acceso a la Información Pública, hemos obtenido la data que se presenta en la plataforma.
+
+Artículo 30: Publicidad de los actos administrativos. Todos los actos de la administración son públicos. Los interesados tienen derecho a obtener, en cualquier tiempo, informes, copias, reproducciones y certificaciones que soliciten y la exhibición de los expedientes que deseen consultar, salvo que se trate de asuntos militares o diplomáticos de seguridad nacional, o de datos suministrados por particulares bajo garantía de confidencia.
+
+Artículo 31: Acceso a archivos y registros estatales. Toda persona tiene el derecho de conocer lo que de ella conste en archivos, fichas o cualquier otra forma de registros estatales, y la finalidad a que se dedica esta información, así como a corrección, rectificación y actualización. Quedan prohibidos los registros y archivos de filiación política, excepto los propios de las autoridades electorales y de los partidos políticos.`
+    },
+    {
+      question: '¿Qué es una Comisión de Postulación?',
+      answer: 'Entendemos como Comisión de Postulación al órgano colegiado que desarrollará determinados procesos de elección previamente establecidos en la Constitución Política de la República o alguna otra ley ordinaria y que se regirá por lo establecido en la Ley de Comisiones de Postulación.'
+    },
+    {
+      question: '¿Qué es la ley de Comisiones de Postulación?',
+      answer: `La Ley de Comisiones de Postulación es el decreto legislativo número 19 – 2009. Este decreto es promulgado por el Organismo Legislativo el 21 de mayo de 2009 y surge por la necesidad de trasparentar y democratizar los procesos de elección de funcionarios públicos del más alto nivel. Este decreto en su artículo segundo desarrolla cuatro principios, los cuales deben observarse siempre que se aplique esta ley en los procesos correspondientes:
+
+• Transparencia
+• Excelencia profesional
+• Objetividad
+• Publicidad`
+    },
+    {
+      question: '¿Qué funcionarios serán elegidos por medio de procesos de comisión de postulación?',
+      answer: `• Magistrados/as de Corte Suprema de Justicia
+• Magistrados/as de Salas de la Corte de Apelaciones
+• Contralor/a General de Cuentas
+• Fiscal General de la República y Jefe/a del Ministerio Público
+• Procurador/a de los Derechos Humanos
+• Cualquier otro funcionario que fuere designado por medio de Comisiones de Postulación`
+    },
+    {
+      question: '¿Quiénes pueden ser Comisionados?',
+      answer: `Según el decreto 19 – 2009, para poder optar al puesto de comisionado, el aspirante deberá cumplir los siguientes requisitos:
+
+• Ser guatemalteco
+• Colegiado activo
+• Tener al menos 5 años de ejercicio profesional
+• Estar en pleno ejercicio de sus derechos civiles y políticos
+• No estar inhabilitado para ejercer cargos públicos
+• Presentar constancia de no haber sido sancionado por el Colegio Profesional respectivo
+• Presentar constancia de antecedentes penales
+• Presentar constancia de antecedentes policiacos`
+    },
+    {
+      question: '¿Cuál es el quorum mínimo para una Comisión de Postulación?',
+      answer: 'Para la celebración de sesiones se requiere la presencia de dos terceras partes del total de miembros que integran la comisión y tampoco se aceptarán representaciones. Asimismo, las decisiones deberán tomarse por dos tercios del total de miembros, salvo los casos en los que una ley específica determine otro precepto. Todas las sesiones deberán constar en acta, la cual deberá ser firmada por todos los participantes.'
+    },
+    {
+      question: '¿Qué hace una Comisión de Postulación?',
+      answer: `Aprobar el perfil de los aspirantes: La elaboración del perfil debe buscar elevar la calidad ética, académica, profesional, profesional y de proyección humana.
+
+Aspectos a considerar al momento de elaborar el perfil del aspirante:
+
+• Elemento ético que responde a la moral, honorabilidad, rectitud, independencia, imparcialidad.
+• Elemento académico que corresponde a la docencia universitaria, títulos académicos, estudios, ensayos, publicaciones y participación en eventos académicos.
+• Elemento profesional que corresponde a la experiencia del aspirante.
+• Proyección humana que corresponde a vocación de servicio y liderazgo.
+
+Aprobar la tabla de gradación: Esta tabla deberá ser empleada como la herramienta o instrumento que mida la ponderación del aspirante según su perfil, valorando de uno a cien los méritos académicos, éticos, profesionales y su proyección humana.`
+    },
+    {
+      question: '¿Cómo convocan las comisiones de postulación?',
+      answer: 'Las Comisiones de Postulación deberán de convocar por medio de publicación hecha en el Diario Oficial (Diario de Centro América) y en dos diarios de mayor circulación. En la convocatoria señalarán los documentos que deben presentar los aspirantes, la fecha y hora límite para presentar expediente de aspirante, requisitos legales y cualquier otra información que consideren pertinentes.'
+    },
+    {
+      question: '¿Cómo se elaboran las nóminas de aspirantes elegibles dentro de los procesos de Comisión de Postulación?',
+      answer: `Después de la evaluación hecha al expediente de todos los aspirantes, se iniciarán el proceso de integración de nóminas. Este proceso se realizará votando por cada perfil de aspirante para determinar si es alguien que debe integrar la nómina o no. Se iniciará votando por el aspirante con mejor puntuación y en los casos donde exista empate entre los aspirantes, se votará por orden alfabético de los apellidos.
+
+Respecto los aspirantes a Magistrado/a de Corte Suprema de Justicia, Sala de Corte de Apelaciones, Fiscal General y Jefe/a del Ministerio Público, Procurador/a de los Derechos Humanos y Contralor/a General de Cuentas deberán obtener los votos de dos tercios del total de integrantes de la Comisión de Postulación.
+
+Finalmente, la votación terminará cuando se complete el número de candidatos que deben incluirse en la nómina.`
+    },
+    {
+      question: '¿Lo dispuesto por una comisión puede ser impugnado?',
+      answer: 'Sí, según el artículo 28 del decreto 19-2009 las impugnaciones deberán plantearse en un plazo de 72 horas después de la publicación de la nómina y deberán ser resueltas en un plazo no mayor de 72 horas.'
+    },
+    {
+      question: '¿A dónde se remiten las nóminas elaboradas por las Comisiones de Postulación?',
+      answer: `En los procesos de elección de magistrados/as de Corte Suprema de Justicia, magistrados/as de Sala de Corte de Apelaciones, Contralor/a General de Cuentas, Director/a del Instituto de la Defensa Pública Penal y Procurador/a de los Derechos Humanos, las nóminas de elegibles deberán dirigirse al Congreso de la República, cuyo pleno decidirá quienes serán los aspirantes electos.
+
+En los procesos de elección de Jefe/a del Ministerio Público las nóminas se remitirán al Presidente de la República.
+
+Las nóminas deberán remitirse a donde correspondan, con toda la documentación del caso con un plazo de al menos 20 días de anticipación a la fecha que establece el plazo constitucional.`
     }
   ];
 
@@ -185,6 +294,52 @@ const WhatIsJusticiapedia: React.FC = () => {
               <p className="text-lg md:text-xl text-green-50 leading-relaxed max-w-2xl mx-auto">
                 Creemos que la información pública, cuando es clara y accesible, se convierte en una herramienta poderosa para combatir la impunidad y fortalecer una sociedad más justa, democrática y equitativa.
               </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mb-16">
+        <Card className="overflow-hidden">
+          <CardHeader className="bg-gradient-to-r from-green-50 to-blue-50 border-b border-green-100">
+            <div className="flex items-center">
+              <HelpCircle size={32} className="text-green-600 mr-4" />
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900">Preguntas Frecuentes</h2>
+                <p className="text-lg text-gray-700 mt-1">Todo lo que necesitas saber sobre Justiciapedia</p>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="p-8 md:p-10">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left"
+                  >
+                    <span className="text-lg font-semibold text-gray-900 pr-4">
+                      {faq.question}
+                    </span>
+                    {openFaqIndex === index ? (
+                      <ChevronUp className="flex-shrink-0 text-blue-600" size={24} />
+                    ) : (
+                      <ChevronDown className="flex-shrink-0 text-gray-400" size={24} />
+                    )}
+                  </button>
+                  {openFaqIndex === index && (
+                    <div className="px-5 pb-5 bg-gray-50 border-t border-gray-200">
+                      <div className="pt-4 text-gray-700 leading-relaxed whitespace-pre-line">
+                        {faq.answer}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
