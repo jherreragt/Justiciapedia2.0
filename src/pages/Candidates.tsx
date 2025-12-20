@@ -128,71 +128,68 @@ const Candidates: React.FC = () => {
     }
   };
 
+  const getContextInfo = (candidate: typeof candidates[0]) => {
+    if (candidate.election) return candidate.election;
+    if (candidate.commission) return candidate.commission;
+    if (candidate.institution) return candidate.institution;
+    return 'Sin información';
+  };
+
   const CandidateCard: React.FC<{ candidate: typeof candidates[0] }> = ({ candidate }) => (
-    <Card className="group h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200">
-      <div className="h-64 overflow-hidden relative">
+    <Card className="group h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-teal-400">
+      <div className="h-80 overflow-hidden relative bg-gray-100">
         <img
           src={candidate.imageUrl}
           alt={candidate.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
             (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute top-3 left-3">
-          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm ${getStatusColor(candidate.status)}`}>
-            {candidate.status}
-          </span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all duration-300" />
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <h3 className="text-2xl font-bold mb-2 leading-tight">
+            {candidate.name}
+          </h3>
         </div>
-        {candidate.awards && candidate.awards.length > 0 && (
-          <div className="absolute top-3 right-3">
-            <div className="bg-amber-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
-              <Star size={16} className="text-white fill-white" />
-            </div>
-          </div>
-        )}
       </div>
 
-      <CardContent className="flex-1 flex flex-col p-6">
-        <div className="flex items-center mb-3 text-teal-700">
-          <Building2 size={16} className="mr-2 flex-shrink-0" />
-          <span className="text-sm font-semibold truncate">{candidate.institution}</span>
-        </div>
-
-        <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-teal-700 transition-colors line-clamp-2">
-          {candidate.name}
-        </h3>
-
-        <p className="text-sm text-gray-600 font-medium mb-3">{candidate.role}</p>
-        <p className="text-sm text-gray-600 mb-4 flex-1 line-clamp-3 leading-relaxed">{candidate.description}</p>
-
-        <div className="space-y-2.5 mb-5 pb-5 border-b border-gray-100">
-          <div className="flex items-center text-gray-700">
-            <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center mr-3">
-              <Award size={14} className="text-teal-600" />
+      <CardContent className="flex-1 flex flex-col p-6 bg-white">
+        <div className="space-y-4 flex-1">
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+              <Building2 size={18} className="text-white" />
             </div>
-            <span className="text-sm font-medium truncate">{candidate.specialization}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">
+                {candidate.election ? 'Elección' : candidate.commission ? 'Comisión' : 'Institución'}
+              </p>
+              <p className="text-sm font-bold text-gray-900 line-clamp-2 leading-snug">
+                {getContextInfo(candidate)}
+              </p>
+            </div>
           </div>
-          <div className="flex items-center text-gray-700">
-            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center mr-3">
-              <Calendar size={14} className="text-blue-600" />
+
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center flex-shrink-0 shadow-md">
+              <Award size={18} className="text-white" />
             </div>
-            <span className="text-sm font-medium">{candidate.yearsOfExperience} años de experiencia</span>
-          </div>
-          <div className="flex items-center text-gray-700">
-            <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center mr-3">
-              <BookOpen size={14} className="text-purple-600" />
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Puesto</p>
+              <p className="text-sm font-bold text-gray-900 line-clamp-2 leading-snug">
+                {candidate.role}
+              </p>
             </div>
-            <span className="text-sm font-medium">{candidate.education.length} título{candidate.education.length !== 1 ? 's' : ''}</span>
           </div>
         </div>
 
         <Button
           variant="primary"
           onClick={() => window.location.href = `/candidatos/${candidate.id}`}
-          className="w-full group-hover:bg-teal-700 group-hover:shadow-lg transition-all duration-300"
+          className="w-full mt-6 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
         >
+          <Eye size={18} className="mr-2" />
           Ver perfil completo
         </Button>
       </CardContent>
@@ -200,10 +197,10 @@ const Candidates: React.FC = () => {
   );
 
   const CandidateListItem: React.FC<{ candidate: typeof candidates[0] }> = ({ candidate }) => (
-    <Card className="hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden group">
+    <Card className="hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-teal-400 overflow-hidden group">
       <CardContent className="p-6">
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="w-full md:w-32 h-32 overflow-hidden rounded-xl flex-shrink-0 relative">
+          <div className="w-full md:w-48 h-48 md:h-64 overflow-hidden rounded-2xl flex-shrink-0 relative bg-gray-100 shadow-lg">
             <img
               src={candidate.imageUrl}
               alt={candidate.name}
@@ -212,64 +209,53 @@ const Candidates: React.FC = () => {
                 (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg';
               }}
             />
-            <div className="absolute top-2 right-2">
-              <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold border backdrop-blur-sm ${getStatusColor(candidate.status)}`}>
-                {candidate.status}
-              </span>
-            </div>
           </div>
 
-          <div className="flex-1 min-w-0">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+          <div className="flex-1 min-w-0 flex flex-col">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
               <div className="flex-1 min-w-0">
-                <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">{candidate.name}</h3>
-                <p className="text-sm text-gray-600 font-medium mb-2">{candidate.role}</p>
-                <div className="flex items-center text-teal-700 mb-3">
-                  <Building2 size={14} className="mr-1.5 flex-shrink-0" />
-                  <span className="text-sm font-semibold truncate">{candidate.institution}</span>
-                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-teal-700 transition-colors leading-tight">
+                  {candidate.name}
+                </h3>
               </div>
 
               <Button
-                variant="outline"
+                variant="primary"
                 size="sm"
                 onClick={() => window.location.href = `/candidatos/${candidate.id}`}
-                className="flex-shrink-0 hover:bg-teal-50 hover:text-teal-700 hover:border-teal-700"
+                className="flex-shrink-0 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold shadow-lg hover:shadow-xl"
               >
-                <Eye size={14} className="mr-1.5" />
-                Ver perfil
+                <Eye size={16} className="mr-2" />
+                Ver perfil completo
               </Button>
             </div>
 
-            <p className="text-sm text-gray-600 mb-4 line-clamp-2 leading-relaxed">{candidate.description}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+              <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border-2 border-teal-100">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                  <Building2 size={20} className="text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-bold text-teal-700 uppercase tracking-wide mb-1">
+                    {candidate.election ? 'Elección' : candidate.commission ? 'Comisión' : 'Institución'}
+                  </p>
+                  <p className="text-sm font-bold text-gray-900 line-clamp-2 leading-snug">
+                    {getContextInfo(candidate)}
+                  </p>
+                </div>
+              </div>
 
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center text-gray-700">
-                <div className="w-7 h-7 rounded-lg bg-teal-50 flex items-center justify-center mr-2">
-                  <Award size={12} className="text-teal-600" />
+              <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-100">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                  <Award size={20} className="text-white" />
                 </div>
-                <span className="text-sm font-medium">{candidate.specialization}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-bold text-blue-700 uppercase tracking-wide mb-1">Puesto</p>
+                  <p className="text-sm font-bold text-gray-900 line-clamp-2 leading-snug">
+                    {candidate.role}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center text-gray-700">
-                <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center mr-2">
-                  <Calendar size={12} className="text-blue-600" />
-                </div>
-                <span className="text-sm font-medium">{candidate.yearsOfExperience} años</span>
-              </div>
-              <div className="flex items-center text-gray-700">
-                <div className="w-7 h-7 rounded-lg bg-purple-50 flex items-center justify-center mr-2">
-                  <BookOpen size={12} className="text-purple-600" />
-                </div>
-                <span className="text-sm font-medium">{candidate.education.length} título{candidate.education.length !== 1 ? 's' : ''}</span>
-              </div>
-              {candidate.awards && candidate.awards.length > 0 && (
-                <div className="flex items-center text-gray-700">
-                  <div className="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center mr-2">
-                    <Star size={12} className="text-amber-600" />
-                  </div>
-                  <span className="text-sm font-medium">{candidate.awards.length} reconocimiento{candidate.awards.length !== 1 ? 's' : ''}</span>
-                </div>
-              )}
             </div>
           </div>
         </div>
