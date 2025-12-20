@@ -561,57 +561,6 @@ const CandidateProfile: React.FC = () => {
           {renderTabContent()}
         </div>
 
-        <div className="mt-12">
-          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 shadow-sm">
-            <CardContent className="py-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Info className="text-white" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-blue-900 mb-2 text-lg">Fuente de Información</h3>
-                  <p className="text-blue-800 font-medium">
-                    Información proporcionada por Comisión de Postulación
-                  </p>
-                </div>
-              </div>
-
-              <div className="border-t-2 border-blue-200 pt-6 mt-6 space-y-6">
-                <div className="bg-white rounded-lg p-5 shadow-sm">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-blue-600 font-bold text-sm">30</span>
-                    </div>
-                    Artículo 30: Publicidad de los actos administrativos
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed pl-11">
-                    Todos los actos de la administración son públicos. Los interesados tienen derecho a obtener,
-                    en cualquier tiempo, informes, copias, reproducciones y certificaciones que soliciten y la
-                    exhibición de los expedientes que deseen consultar, salvo que se trate de asuntos militares
-                    o diplomáticos de seguridad nacional, o de datos suministrados por particulares bajo garantía
-                    de confidencia.
-                  </p>
-                </div>
-
-                <div className="bg-white rounded-lg p-5 shadow-sm">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-blue-600 font-bold text-sm">31</span>
-                    </div>
-                    Artículo 31: Acceso a archivos y registros estatales
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed pl-11">
-                    Toda persona tiene el derecho de conocer lo que de ella conste en archivos, fichas o cualquier
-                    otra forma de registros estatales, y la finalidad a que se dedica esta información, así como a
-                    corrección, rectificación y actualización. Quedan prohibidos los registros y archivos de filiación
-                    política, excepto los propios de las autoridades electorales y de los partidos políticos.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         <div className="mt-8">
           <Card className="shadow-sm">
             <CardContent className="py-6">
@@ -645,6 +594,53 @@ const CandidateProfile: React.FC = () => {
                   >
                     Ver todos los candidatos
                   </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-8">
+          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 shadow-sm">
+            <CardContent className="py-8">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Info className="text-white" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-blue-900 mb-2 text-lg">Base legal de la información</h3>
+                  <p className="text-blue-800 leading-relaxed">
+                    La información publicada en Justiciapedia se fundamenta en los artículos 30 y 31 de la Constitución Política de la República de Guatemala, que garantizan el derecho de toda persona a acceder a la información pública y a conocer los registros estatales.
+                  </p>
+                  <p className="text-blue-800 leading-relaxed mt-3">
+                    Justiciapedia utiliza únicamente información obtenida mediante mecanismos legales de acceso a la información pública y respeta los límites establecidos por la ley en materia de confidencialidad y protección de datos.
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t-2 border-blue-200 pt-6 mt-6 space-y-6">
+                <div className="bg-white rounded-lg p-5 shadow-sm">
+                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-blue-600 font-bold text-sm">30</span>
+                    </div>
+                    Artículo 30: Publicidad de los actos administrativos
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed pl-11">
+                    Todos los actos de la administración son públicos. Los interesados tienen derecho a obtener, en cualquier tiempo, informes, copias, reproducciones y certificaciones que soliciten y la exhibición de los expedientes que deseen consultar, salvo que se trate de asuntos militares o diplomáticos de seguridad nacional, o de datos suministrados por particulares bajo garantía de confidencia.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg p-5 shadow-sm">
+                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-blue-600 font-bold text-sm">31</span>
+                    </div>
+                    Artículo 31: Acceso a archivos y registros estatales
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed pl-11">
+                    Toda persona tiene el derecho de conocer lo que de ella conste en archivos, fichas o cualquier otra forma de registros estatales, y la finalidad a que se dedica esta información, así como a corrección, rectificación y actualización. Quedan prohibidos los registros y archivos de filiación política, excepto los propios de las autoridades electorales y de los partidos políticos.
+                  </p>
                 </div>
               </div>
             </CardContent>
