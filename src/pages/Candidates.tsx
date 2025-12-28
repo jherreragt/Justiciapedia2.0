@@ -10,18 +10,18 @@ const Candidates: React.FC = () => {
   const slides = [
     {
       title: 'Aspirantes al Proceso de Formación',
-      description: 'Conoce los perfiles de los candidatos que participan en los procesos de selección judicial.',
-      backgroundColor: '#0f766e',
+      description: 'Conoce los perfiles de los candidatos que participan en los procesos de selección judicial en Guatemala.',
+      imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
     },
     {
       title: 'Transparencia en la Selección',
       description: 'Información completa sobre la trayectoria académica y profesional de cada aspirante.',
-      backgroundColor: '#0891b2',
+      imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
     },
     {
       title: 'Participación Ciudadana',
       description: 'Accede a datos verificados para una toma de decisiones informada sobre el sistema judicial.',
-      backgroundColor: '#0369a1',
+      imageUrl: 'https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg',
     },
   ];
 
@@ -136,7 +136,7 @@ const Candidates: React.FC = () => {
   };
 
   const CandidateCard: React.FC<{ candidate: typeof candidates[0] }> = ({ candidate }) => (
-    <Card className="group h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-teal-400">
+    <Card className="group h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-primary-400">
       <div className="h-80 overflow-hidden relative bg-gray-100">
         <img
           src={candidate.imageUrl}
@@ -158,7 +158,7 @@ const Candidates: React.FC = () => {
       <CardContent className="flex-1 flex flex-col p-6 bg-white">
         <div className="space-y-4 flex-1">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
               <Building2 size={18} className="text-white" />
             </div>
             <div className="flex-1 min-w-0">
@@ -187,7 +187,7 @@ const Candidates: React.FC = () => {
         <Button
           variant="primary"
           onClick={() => window.location.href = `/candidatos/${candidate.id}`}
-          className="w-full mt-6 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
+          className="w-full mt-6 bg-gradient-to-r from-primary-600 to-cyan-600 hover:from-primary-700 hover:to-cyan-700 text-white font-bold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
         >
           <Eye size={18} className="mr-2" />
           Ver perfil completo
@@ -197,7 +197,7 @@ const Candidates: React.FC = () => {
   );
 
   const CandidateListItem: React.FC<{ candidate: typeof candidates[0] }> = ({ candidate }) => (
-    <Card className="hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-teal-400 overflow-hidden group">
+    <Card className="hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-primary-400 overflow-hidden group">
       <CardContent className="p-6">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full md:w-48 h-48 md:h-64 overflow-hidden rounded-2xl flex-shrink-0 relative bg-gray-100 shadow-lg">
@@ -214,7 +214,7 @@ const Candidates: React.FC = () => {
           <div className="flex-1 min-w-0 flex flex-col">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
               <div className="flex-1 min-w-0">
-                <h3 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-teal-700 transition-colors leading-tight">
+                <h3 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors leading-tight">
                   {candidate.name}
                 </h3>
               </div>
@@ -223,7 +223,7 @@ const Candidates: React.FC = () => {
                 variant="primary"
                 size="sm"
                 onClick={() => window.location.href = `/candidatos/${candidate.id}`}
-                className="flex-shrink-0 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold shadow-lg hover:shadow-xl"
+                className="flex-shrink-0 bg-gradient-to-r from-primary-600 to-cyan-600 hover:from-primary-700 hover:to-cyan-700 text-white font-bold shadow-lg hover:shadow-xl"
               >
                 <Eye size={16} className="mr-2" />
                 Ver perfil completo
@@ -231,12 +231,12 @@ const Candidates: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
-              <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border-2 border-teal-100">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+              <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary-50 to-cyan-50 rounded-xl border-2 border-primary-100">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
                   <Building2 size={20} className="text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-bold text-teal-700 uppercase tracking-wide mb-1">
+                  <p className="text-xs font-bold text-primary-700 uppercase tracking-wide mb-1">
                     {candidate.election ? 'Elección' : candidate.commission ? 'Comisión' : 'Institución'}
                   </p>
                   <p className="text-sm font-bold text-gray-900 line-clamp-2 leading-snug">
@@ -280,7 +280,7 @@ const Candidates: React.FC = () => {
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Buscar por nombre, cargo, institución o especialización..."
-                  className="w-full px-5 py-4 pl-14 pr-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-sm transition-all"
+                  className="w-full px-5 py-4 pl-14 pr-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow-sm transition-all"
                 />
                 <Search size={20} className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 {searchQuery && (
@@ -302,7 +302,7 @@ const Candidates: React.FC = () => {
                   <SlidersHorizontal size={18} />
                   Filtros
                   {activeFiltersCount > 0 && (
-                    <span className="ml-1 px-2 py-0.5 bg-white text-teal-700 rounded-full text-xs font-bold">
+                    <span className="ml-1 px-2 py-0.5 bg-white text-primary-700 rounded-full text-xs font-bold">
                       {activeFiltersCount}
                     </span>
                   )}
@@ -314,7 +314,7 @@ const Candidates: React.FC = () => {
                     onClick={() => setViewMode('grid')}
                     className={`px-4 py-2 transition-all ${
                       viewMode === 'grid'
-                        ? 'bg-teal-600 text-white'
+                        ? 'bg-primary-600 text-white'
                         : 'bg-white text-gray-600 hover:bg-gray-50'
                     }`}
                     title="Vista de cuadrícula"
@@ -325,7 +325,7 @@ const Candidates: React.FC = () => {
                     onClick={() => setViewMode('list')}
                     className={`px-4 py-2 transition-all ${
                       viewMode === 'list'
-                        ? 'bg-teal-600 text-white'
+                        ? 'bg-primary-600 text-white'
                         : 'bg-white text-gray-600 hover:bg-gray-50'
                     }`}
                     title="Vista de lista"
@@ -343,7 +343,7 @@ const Candidates: React.FC = () => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-teal-50 text-teal-700 rounded-lg text-sm font-medium hover:bg-teal-100 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium hover:bg-primary-100 transition-colors"
                   >
                     Búsqueda: "{searchQuery}"
                     <X size={14} />
@@ -396,7 +396,7 @@ const Candidates: React.FC = () => {
 
             {/* Advanced Filters Panel */}
             {showFilters && (
-              <Card className="border-2 border-teal-100 shadow-lg animate-in slide-in-from-top duration-300">
+              <Card className="border-2 border-primary-100 shadow-lg animate-in slide-in-from-top duration-300">
                 <CardContent className="p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div>
@@ -407,7 +407,7 @@ const Candidates: React.FC = () => {
                         id="institution-filter"
                         value={institutionFilter}
                         onChange={e => setInstitutionFilter(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="all">Todas las instituciones</option>
                         {institutions.map(institution => (
@@ -424,7 +424,7 @@ const Candidates: React.FC = () => {
                         id="specialization-filter"
                         value={specializationFilter}
                         onChange={e => setSpecializationFilter(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="all">Todas las especializaciones</option>
                         {specializations.map(spec => (
@@ -441,7 +441,7 @@ const Candidates: React.FC = () => {
                         id="status-filter"
                         value={statusFilter}
                         onChange={e => setStatusFilter(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="all">Todos los estados</option>
                         {statuses.map(status => (
@@ -458,7 +458,7 @@ const Candidates: React.FC = () => {
                         id="experience-filter"
                         value={experienceFilter}
                         onChange={e => setExperienceFilter(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="all">Cualquier experiencia</option>
                         <option value="0-5">0-5 años</option>
@@ -474,9 +474,9 @@ const Candidates: React.FC = () => {
           </div>
 
           {/* Results Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-teal-50 to-blue-50 px-6 py-4 rounded-xl border border-teal-100">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 rounded-xl border border-primary-100">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-teal-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center">
                 <Users size={20} className="text-white" />
               </div>
               <div>
@@ -495,7 +495,7 @@ const Candidates: React.FC = () => {
                 id="sort-by"
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value)}
-                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm font-medium transition-all"
+                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm font-medium transition-all"
               >
                 <option value="name">Nombre</option>
                 <option value="experience">Experiencia</option>
@@ -544,7 +544,7 @@ const Candidates: React.FC = () => {
           )}
 
           {/* Statistics Section */}
-          <div className="mt-16 bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-600 text-white rounded-2xl p-10 md:p-12 shadow-2xl">
+          <div className="mt-16 bg-gradient-to-br from-primary-600 via-cyan-600 to-blue-600 text-white rounded-2xl p-10 md:p-12 shadow-2xl">
             <div className="flex items-center justify-center gap-3 mb-8">
               <TrendingUp size={32} className="text-white" />
               <h2 className="text-3xl md:text-4xl font-bold text-center">
@@ -596,16 +596,16 @@ const Candidates: React.FC = () => {
                         setSpecializationFilter(spec);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="bg-white p-6 rounded-xl hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-teal-500 text-left group"
+                      className="bg-white p-6 rounded-xl hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-primary-500 text-left group"
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <h3 className="font-bold text-gray-900 group-hover:text-teal-700 transition-colors">{spec}</h3>
-                        <span className="text-sm font-bold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">{percentage}%</span>
+                        <h3 className="font-bold text-gray-900 group-hover:text-primary-700 transition-colors">{spec}</h3>
+                        <span className="text-sm font-bold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">{percentage}%</span>
                       </div>
                       <div className="mb-3">
                         <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                           <div
-                            className="bg-gradient-to-r from-teal-500 to-cyan-500 h-3 rounded-full transition-all duration-500 group-hover:from-teal-600 group-hover:to-cyan-600"
+                            className="bg-gradient-to-r from-primary-500 to-cyan-500 h-3 rounded-full transition-all duration-500 group-hover:from-primary-600 group-hover:to-cyan-600"
                             style={{ width: `${percentage}%` }}
                           ></div>
                         </div>

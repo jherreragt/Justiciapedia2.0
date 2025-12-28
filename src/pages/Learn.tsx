@@ -155,16 +155,20 @@ const Learn: React.FC = () => {
       description="Contenidos educativos sobre justicia, democracia y transparencia para todo público."
     >
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-green-50 via-white to-blue-50 rounded-2xl p-8 md:p-12 lg:p-16 mb-16 shadow-lg">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative bg-gradient-to-br from-primary-800 via-primary-900 to-secondary-900 rounded-2xl p-8 md:p-12 lg:p-16 mb-16 shadow-2xl overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-justice-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-400/10 rounded-full blur-3xl -ml-24 -mb-24"></div>
+        <div className="max-w-4xl mx-auto text-center relative">
           <div className="mb-6">
-            <GraduationCap size={56} className="mx-auto text-green-600" />
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-justice-400 to-justice-600 rounded-2xl shadow-xl">
+              <GraduationCap size={40} className="text-white" />
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
             Aprender para participar
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Entender cómo funciona la justicia es el primer paso para defenderla. La sección <strong className="text-primary-700">Aprende</strong> ofrece contenidos educativos pensados para todo público, sin necesidad de conocimientos jurídicos previos.
+          <p className="text-lg md:text-xl text-primary-100 leading-relaxed">
+            Entender cómo funciona la justicia es el primer paso para defenderla. La sección <strong className="text-justice-300">Aprende</strong> ofrece contenidos educativos pensados para todo público, sin necesidad de conocimientos jurídicos previos.
           </p>
         </div>
       </div>
@@ -173,35 +177,38 @@ const Learn: React.FC = () => {
       <div className="mb-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-50 rounded-full mb-3">
+              <BookOpen size={18} className="text-accent-600" />
+              <span className="text-sm font-semibold text-accent-700">Recursos Educativos</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
               Guías explicativas
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-neutral-600">
               Materiales sencillos que explican conceptos clave del sector justicia
             </p>
           </div>
-          <BookOpen size={40} className="text-green-600 hidden md:block" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {guides.map((guide, index) => {
             const Icon = guide.icon;
             return (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-                <CardHeader className="bg-gradient-to-br from-green-50 to-blue-50">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border-2 border-neutral-100 hover:border-accent-300">
+                <CardHeader className="bg-gradient-to-br from-accent-50 to-primary-50">
                   <div className="flex items-start justify-between mb-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                      <Icon size={24} className="text-green-600" />
+                    <div className="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon size={24} className="text-accent-600" />
                     </div>
-                    <span className="px-3 py-1 bg-white rounded-full text-xs font-medium text-gray-700 border border-gray-200">
+                    <span className="px-3 py-1 bg-white rounded-full text-xs font-medium text-neutral-700 border border-neutral-200">
                       {guide.level}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{guide.title}</h3>
-                  <p className="text-gray-600 text-sm">{guide.description}</p>
+                  <h3 className="text-lg font-bold text-neutral-900 mb-2 group-hover:text-accent-700 transition-colors">{guide.title}</h3>
+                  <p className="text-neutral-600 text-sm">{guide.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                  <div className="flex items-center justify-between text-sm text-neutral-600 mb-4">
                     <span className="flex items-center">
                       <BookOpen size={16} className="mr-1" />
                       {guide.duration}
@@ -211,13 +218,13 @@ const Learn: React.FC = () => {
                     {guide.topics.map((topic, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs"
+                        className="px-2 py-1 bg-accent-100 text-accent-700 rounded-lg text-xs font-medium"
                       >
                         {topic}
                       </span>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full border-green-600 text-green-600 hover:bg-green-50">
+                  <Button variant="outline" className="w-full border-accent-600 text-accent-600 hover:bg-accent-50">
                     Leer guía
                   </Button>
                 </CardContent>
@@ -229,16 +236,19 @@ const Learn: React.FC = () => {
 
       {/* Infographics Section */}
       <div className="mb-16">
-        <Card className="overflow-hidden">
-          <CardHeader className="bg-gradient-to-r from-blue-50 to-green-50">
+        <Card className="overflow-hidden border-2 border-neutral-100">
+          <CardHeader className="bg-gradient-to-r from-primary-50 to-accent-50">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Infografías</h2>
-                <p className="text-lg text-gray-700">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-3">
+                  <Image size={18} className="text-primary-600" />
+                  <span className="text-sm font-semibold text-primary-700">Contenido Visual</span>
+                </div>
+                <h2 className="text-3xl font-bold text-neutral-900 mb-2">Infografías</h2>
+                <p className="text-lg text-neutral-700">
                   Contenidos visuales para comprender procesos complejos de forma rápida y clara
                 </p>
               </div>
-              <Image size={40} className="text-blue-600 hidden md:block" />
             </div>
           </CardHeader>
           <CardContent className="p-8">

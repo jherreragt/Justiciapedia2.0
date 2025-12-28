@@ -10,18 +10,18 @@ const Commissions: React.FC = () => {
   const slides = [
     {
       title: 'Comisiones de Postulación',
-      description: 'Seguimiento transparente de los procesos de selección de magistrados y funcionarios judiciales.',
-      backgroundColor: '#0891b2',
+      description: 'Seguimiento transparente de los procesos de selección de magistrados y funcionarios judiciales en Guatemala.',
+      imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
     },
     {
       title: 'Procesos de Selección',
       description: 'Información actualizada sobre candidatos, fases y cronogramas de las comisiones activas.',
-      backgroundColor: '#0e7490',
+      imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
     },
     {
       title: 'Transparencia en Acción',
       description: 'Accede a documentos, requisitos y resultados de cada proceso de postulación.',
-      backgroundColor: '#155e75',
+      imageUrl: 'https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg',
     },
   ];
 
@@ -151,7 +151,7 @@ const Commissions: React.FC = () => {
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Buscar por nombre, propósito, tipo o descripción..."
-                  className="w-full px-5 py-4 pl-14 pr-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent shadow-sm transition-all"
+                  className="w-full px-5 py-4 pl-14 pr-4 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent shadow-sm transition-all"
                 />
                 <Search size={20} className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 {searchQuery && (
@@ -172,7 +172,7 @@ const Commissions: React.FC = () => {
                 <SlidersHorizontal size={18} />
                 Filtros
                 {activeFiltersCount > 0 && (
-                  <span className="ml-1 px-2 py-0.5 bg-white text-cyan-700 rounded-full text-xs font-bold">
+                  <span className="ml-1 px-2 py-0.5 bg-white text-primary-700 rounded-full text-xs font-bold">
                     {activeFiltersCount}
                   </span>
                 )}
@@ -187,7 +187,7 @@ const Commissions: React.FC = () => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-50 text-cyan-700 rounded-lg text-sm font-medium hover:bg-cyan-100 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium hover:bg-primary-100 transition-colors"
                   >
                     Búsqueda: "{searchQuery}"
                     <X size={14} />
@@ -222,7 +222,7 @@ const Commissions: React.FC = () => {
 
             {/* Advanced Filters Panel */}
             {showFilters && (
-              <Card className="border-2 border-cyan-100 shadow-lg animate-in slide-in-from-top duration-300">
+              <Card className="border-2 border-primary-100 shadow-lg animate-in slide-in-from-top duration-300">
                 <CardContent className="p-6">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
@@ -233,7 +233,7 @@ const Commissions: React.FC = () => {
                         id="status-filter"
                         value={statusFilter}
                         onChange={e => setStatusFilter(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="all">Todos los estados</option>
                         {commissionStatuses.map(status => (
@@ -250,7 +250,7 @@ const Commissions: React.FC = () => {
                         id="type-filter"
                         value={typeFilter}
                         onChange={e => setTypeFilter(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="all">Todos los tipos</option>
                         {commissionTypes.map(type => (
@@ -267,7 +267,7 @@ const Commissions: React.FC = () => {
                         id="sort-by"
                         value={sortBy}
                         onChange={e => setSortBy(e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                       >
                         <option value="date">Fecha</option>
                         <option value="name">Nombre</option>
@@ -281,9 +281,9 @@ const Commissions: React.FC = () => {
           </div>
 
           {/* Results Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-cyan-50 to-blue-50 px-6 py-4 rounded-xl border border-cyan-100">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 rounded-xl border border-primary-100">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-cyan-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center">
                 <Users size={20} className="text-white" />
               </div>
               <div>
@@ -299,7 +299,7 @@ const Commissions: React.FC = () => {
               <select
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value)}
-                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm font-medium transition-all"
+                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm font-medium transition-all"
               >
                 <option value="date">Fecha</option>
                 <option value="name">Nombre</option>
@@ -359,19 +359,19 @@ const Commissions: React.FC = () => {
                                 <span className="ml-1.5">{commission.status}</span>
                               </span>
                               {commission.institution && (
-                                <span className="inline-flex items-center bg-cyan-100 text-cyan-800 px-3 py-1.5 rounded-full text-xs font-bold border border-cyan-200">
+                                <span className="inline-flex items-center bg-primary-100 text-primary-800 px-3 py-1.5 rounded-full text-xs font-bold border border-primary-200">
                                   {commission.institution}
                                 </span>
                               )}
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-cyan-700 transition-colors">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors">
                               {commission.name}
                             </h3>
                           </div>
                         )}
 
                         {commission.description && (
-                          <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-4 rounded-xl border-2 border-cyan-200">
+                          <div className="bg-gradient-to-r from-primary-50 to-blue-50 p-4 rounded-xl border-2 border-primary-200">
                             <p className="text-gray-700 leading-relaxed font-medium">{commission.description}</p>
                           </div>
                         )}
@@ -379,7 +379,7 @@ const Commissions: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {commission.startDate && (
                             <div className="flex items-start gap-3 p-4 bg-white rounded-xl border-2 border-gray-200">
-                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-primary-500 flex items-center justify-center flex-shrink-0 shadow-md">
                                 <Calendar size={20} className="text-white" />
                               </div>
                               <div className="flex-1 min-w-0">
@@ -405,7 +405,7 @@ const Commissions: React.FC = () => {
                           <Button
                             variant="primary"
                             onClick={() => window.location.href = `/comisiones/${commission.id}`}
-                            className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
+                            className="flex-1 bg-gradient-to-r from-primary-600 to-blue-600 hover:from-primary-700 hover:to-blue-700 text-white font-bold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                           >
                             <Eye size={18} className="mr-2" />
                             Ver Perfil Completo
@@ -470,14 +470,14 @@ const Commissions: React.FC = () => {
                       {/* Timeline Preview */}
                       <div className="mb-6">
                         <h4 className="font-bold text-gray-900 mb-4 flex items-center text-lg">
-                          <div className="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center mr-3">
-                            <Calendar size={16} className="text-cyan-600" />
+                          <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                            <Calendar size={16} className="text-primary-600" />
                           </div>
                           Cronograma del Proceso
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                           {commission.phases.slice(0, 3).map((phase, index) => (
-                            <div key={index} className="flex items-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border-2 border-gray-200 hover:border-cyan-300 hover:shadow-md transition-all">
+                            <div key={index} className="flex items-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border-2 border-gray-200 hover:border-primary-300 hover:shadow-md transition-all">
                               <div className="flex-shrink-0">
                                 {getStatusIcon(phase.status)}
                               </div>
@@ -562,26 +562,26 @@ const Commissions: React.FC = () => {
                           {commission.members && commission.members.length > 0 && (
                             <div>
                               <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center">
-                                <Users size={20} className="mr-2 text-cyan-600" />
+                                <Users size={20} className="mr-2 text-primary-600" />
                                 Integrantes de la Comisión
                               </h4>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {commission.members.map((member, index) => (
-                                  <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-cyan-300 hover:shadow-md transition-all">
+                                  <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-300 hover:shadow-md transition-all">
                                     {member.imageUrl ? (
                                       <img
                                         src={member.imageUrl}
                                         alt={member.name}
-                                        className="w-14 h-14 rounded-full object-cover border-2 border-cyan-200"
+                                        className="w-14 h-14 rounded-full object-cover border-2 border-primary-200"
                                       />
                                     ) : (
-                                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center border-2 border-cyan-200">
-                                        <Users size={20} className="text-cyan-600" />
+                                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-100 to-blue-100 flex items-center justify-center border-2 border-primary-200">
+                                        <Users size={20} className="text-primary-600" />
                                       </div>
                                     )}
                                     <div className="min-w-0 flex-1">
                                       <h5 className="font-bold text-gray-900 text-sm truncate">{member.name}</h5>
-                                      <p className="text-xs text-cyan-700 font-bold">{member.role}</p>
+                                      <p className="text-xs text-primary-700 font-bold">{member.role}</p>
                                       <p className="text-xs text-gray-600 truncate font-medium">{member.institution}</p>
                                     </div>
                                   </div>
@@ -622,7 +622,7 @@ const Commissions: React.FC = () => {
                           <Button
                             variant="outline"
                             onClick={() => window.location.href = `/candidatos?commission=${commission.id}`}
-                            className="flex-1 hover:bg-cyan-50 hover:text-cyan-700 hover:border-cyan-700 transition-all"
+                            className="flex-1 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-700 transition-all"
                           >
                             <Award size={18} className="mr-2" />
                             Ver Candidatos ({commission.candidatesCount})
@@ -658,7 +658,7 @@ const Commissions: React.FC = () => {
           )}
 
           {/* Commission Statistics */}
-          <div className="mt-16 bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 text-white rounded-2xl p-10 md:p-12 shadow-2xl">
+          <div className="mt-16 bg-gradient-to-br from-primary-800 via-primary-900 to-secondary-900 text-white rounded-2xl p-10 md:p-12 shadow-2xl">
             <div className="flex items-center justify-center gap-3 mb-8">
               <BarChart3 size={32} className="text-white" />
               <h2 className="text-3xl md:text-4xl font-bold text-center">
@@ -707,7 +707,7 @@ const Commissions: React.FC = () => {
                     const currentPhase = getCurrentPhase(commission);
                     const progress = getPhaseProgress(commission);
                     return (
-                      <div key={commission.id} className="bg-white p-6 rounded-xl border-2 border-gray-200 hover:border-cyan-400 hover:shadow-lg transition-all">
+                      <div key={commission.id} className="bg-white p-6 rounded-xl border-2 border-gray-200 hover:border-primary-400 hover:shadow-lg transition-all">
                         <div className="flex items-center justify-between mb-4">
                           <h3 className="font-bold text-gray-900 text-lg flex-1">{commission.name}</h3>
                           <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold border ${getStatusColor(commission.status)}`}>
@@ -731,7 +731,7 @@ const Commissions: React.FC = () => {
                           <div className="flex-1">
                             <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
                               <div
-                                className="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full transition-all duration-500"
+                                className="bg-gradient-to-r from-primary-500 to-blue-500 h-3 rounded-full transition-all duration-500"
                                 style={{ width: `${progress}%` }}
                               ></div>
                             </div>

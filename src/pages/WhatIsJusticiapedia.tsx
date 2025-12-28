@@ -170,20 +170,22 @@ Las nóminas deberán remitirse a donde correspondan, con toda la documentación
       description="Conoce más sobre nuestra plataforma y nuestra misión de transparentar el sector justicia en Guatemala."
     >
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-2xl p-8 md:p-12 lg:p-16 mb-16 shadow-lg">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+      <div className="relative bg-gradient-to-br from-primary-800 via-primary-900 to-secondary-900 rounded-2xl p-8 md:p-12 lg:p-16 mb-16 shadow-2xl overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-justice-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-400/10 rounded-full blur-3xl -ml-24 -mb-24"></div>
+        <div className="max-w-4xl mx-auto text-center relative">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
             ¿Qué es Justiciapedia?
           </h1>
-          <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
+          <div className="space-y-6 text-lg md:text-xl text-primary-100 leading-relaxed">
             <p>
-              Justiciapedia es una <strong className="text-primary-700">herramienta digital ciudadana</strong> que busca acercar el sector justicia a la población, haciendo comprensibles procesos que históricamente han sido técnicos, cerrados y poco accesibles.
+              Justiciapedia es una <strong className="text-justice-300">herramienta digital ciudadana</strong> que busca acercar el sector justicia a la población, haciendo comprensibles procesos que históricamente han sido técnicos, cerrados y poco accesibles.
             </p>
             <p>
-              En Guatemala, la justicia ha sido tradicionalmente un tema reservado para juristas, académicos y pequeños círculos especializados. Esto ha generado distancia, desinformación y desconfianza. <strong className="text-primary-700">Justiciapedia rompe esa barrera</strong>, poniendo la información pública al alcance de todas y todos, de forma clara, interactiva y transparente.
+              En Guatemala, la justicia ha sido tradicionalmente un tema reservado para juristas, académicos y pequeños círculos especializados. Esto ha generado distancia, desinformación y desconfianza. <strong className="text-justice-300">Justiciapedia rompe esa barrera</strong>, poniendo la información pública al alcance de todas y todos, de forma clara, interactiva y transparente.
             </p>
             <p>
-              Aquí podrás entender <strong className="text-primary-700">quiénes toman las decisiones</strong>, cómo se eligen las autoridades, qué instituciones intervienen y qué derechos tiene la ciudadanía para informarse y participar.
+              Aquí podrás entender <strong className="text-justice-300">quiénes toman las decisiones</strong>, cómo se eligen las autoridades, qué instituciones intervienen y qué derechos tiene la ciudadanía para informarse y participar.
             </p>
           </div>
         </div>
@@ -191,12 +193,14 @@ Las nóminas deberán remitirse a donde correspondan, con toda la documentación
 
       {/* Problem Section */}
       <div className="mb-16">
-        <Card className="overflow-hidden">
-          <CardHeader className="bg-gradient-to-r from-red-50 to-orange-50 border-b border-red-100">
+        <Card className="overflow-hidden border-2 border-neutral-100">
+          <CardHeader className="bg-gradient-to-r from-error-50 to-warning-50 border-b border-error-100">
             <div className="flex items-center">
-              <AlertCircle size={32} className="text-red-600 mr-4" />
+              <div className="w-14 h-14 bg-error-100 rounded-xl flex items-center justify-center mr-4">
+                <AlertCircle size={28} className="text-error-600" />
+              </div>
               <div>
-                <h2 className="text-3xl font-bold text-gray-900">¿Qué problema aborda?</h2>
+                <h2 className="text-3xl font-bold text-neutral-900">¿Qué problema aborda?</h2>
                 <p className="text-lg text-gray-700 mt-1">Un sistema complejo, una ciudadanía excluida</p>
               </div>
             </div>

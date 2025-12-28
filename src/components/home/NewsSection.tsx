@@ -1,11 +1,10 @@
 import React from 'react';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight, Clock, Newspaper } from 'lucide-react';
 import Container from '../ui/Container';
 import Card, { CardContent } from '../ui/Card';
 import { newsArticles } from '../../data/news';
 
 const NewsSection: React.FC = () => {
-  // Get the 3 most recent articles
   const recentArticles = newsArticles
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
@@ -19,82 +18,90 @@ const NewsSection: React.FC = () => {
   };
 
   const getCategoryColor = (category: string) => {
-    const colors = {
-      'Procesos de Selección': 'bg-blue-100 text-blue-800',
-      'Análisis': 'bg-purple-100 text-purple-800',
-      'Entrevistas': 'bg-green-100 text-green-800',
-      'Noticias': 'bg-yellow-100 text-yellow-800',
-      'Reportajes': 'bg-red-100 text-red-800',
-      'Opinión': 'bg-indigo-100 text-indigo-800',
+    const colors: Record<string, string> = {
+      'Procesos de Selección': 'bg-primary-100 text-primary-800 border-primary-200',
+      'Análisis': 'bg-secondary-100 text-secondary-800 border-secondary-200',
+      'Entrevistas': 'bg-accent-100 text-accent-800 border-accent-200',
+      'Noticias': 'bg-justice-100 text-justice-800 border-justice-200',
+      'Reportajes': 'bg-error-100 text-error-800 border-error-200',
+      'Opinión': 'bg-primary-100 text-primary-800 border-primary-200',
     };
-    return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800';
+    return colors[category] || 'bg-neutral-100 text-neutral-800 border-neutral-200';
   };
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-20 bg-gradient-to-b from-white to-neutral-50">
       <Container>
-        <div className="flex justify-between items-end mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Notas de Interés</h2>
-            <p className="text-gray-600">
-              Las últimas noticias y análisis sobre el sistema judicial
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-full mb-4">
+              <Newspaper size={18} className="text-primary-600" />
+              <span className="text-sm font-semibold text-primary-700">Actualidad</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3">
+              Notas de Interés
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-xl">
+              Las últimas noticias y análisis sobre el sistema judicial guatemalteco
             </p>
           </div>
           <a
             href="/noticias"
-            className="text-primary-600 hover:text-primary-700 font-medium flex items-center"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
           >
             Ver todas las notas
-            <ArrowRight size={16} className="ml-1" />
+            <ArrowRight size={18} />
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {recentArticles.map((article) => (
             <Card
               key={article.id}
-              className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+              className="group h-full flex flex-col hover:shadow-xl transition-all duration-300 cursor-pointer border-2 border-neutral-100 hover:border-primary-200 overflow-hidden"
               onClick={() => window.location.href = `/noticias/${article.id}`}
             >
-              <div className="h-48 overflow-hidden relative">
+              <div className="h-52 overflow-hidden relative">
                 <img
                   src={article.imageUrl}
                   alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-4 left-4">
-                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getCategoryColor(article.category)}`}>
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(article.category)}`}>
                     {article.category}
                   </span>
                 </div>
               </div>
               <CardContent className="flex-1 flex flex-col p-6">
-                <div className="flex items-center mb-3 text-sm text-gray-600">
-                  <div className="flex items-center">
-                    <Calendar size={14} className="mr-1" />
-                    {formatDate(article.date)}
+                <div className="flex items-center gap-4 mb-4 text-sm text-neutral-500">
+                  <div className="flex items-center gap-1">
+                    <Calendar size={14} />
+                    <span>{formatDate(article.date)}</span>
                   </div>
                   {article.readTime && (
-                    <span className="ml-3">
-                      {article.readTime} min lectura
-                    </span>
+                    <div className="flex items-center gap-1">
+                      <Clock size={14} />
+                      <span>{article.readTime} min</span>
+                    </div>
                   )}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 line-clamp-2 hover:text-primary-600 transition-colors">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3 line-clamp-2 group-hover:text-primary-700 transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 mb-4 flex-1 line-clamp-3">
+                <p className="text-neutral-600 mb-4 flex-1 line-clamp-3 leading-relaxed">
                   {article.excerpt}
                 </p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pt-4 border-t border-neutral-100">
                   {article.author && (
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-neutral-500 font-medium">
                       Por {article.author}
                     </span>
                   )}
-                  <div className="text-primary-600 hover:text-primary-700 font-medium flex items-center text-sm">
-                    Leer más
-                    <ArrowRight size={14} className="ml-1" />
+                  <div className="flex items-center gap-1 text-primary-600 font-semibold text-sm group-hover:gap-2 transition-all">
+                    <span>Leer más</span>
+                    <ArrowRight size={16} />
                   </div>
                 </div>
               </CardContent>

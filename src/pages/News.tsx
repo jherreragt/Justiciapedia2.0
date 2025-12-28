@@ -20,17 +20,17 @@ const News: React.FC = () => {
     {
       title: 'Notas de Interés',
       description: 'Mantente informado sobre las últimas noticias del sistema judicial guatemalteco.',
-      imageUrl: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/6077447/pexels-photo-6077447.jpeg',
     },
     {
       title: 'Análisis y Reportajes',
       description: 'Análisis profundos sobre los procesos de selección y el sistema de justicia.',
-      imageUrl: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg',
     },
     {
       title: 'Transparencia Informativa',
       description: 'Información verificada y actualizada sobre el sistema judicial.',
-      imageUrl: 'https://images.pexels.com/photos/261949/pexels-photo-261949.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg',
     },
   ];
 
@@ -109,14 +109,14 @@ const News: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'Procesos de Selección': 'bg-blue-100 text-blue-800',
-      'Análisis': 'bg-purple-100 text-purple-800',
-      'Entrevistas': 'bg-green-100 text-green-800',
-      'Noticias': 'bg-yellow-100 text-yellow-800',
-      'Reportajes': 'bg-red-100 text-red-800',
-      'Opinión': 'bg-indigo-100 text-indigo-800',
+      'Procesos de Selección': 'bg-primary-100 text-primary-800',
+      'Análisis': 'bg-secondary-100 text-secondary-800',
+      'Entrevistas': 'bg-accent-100 text-accent-800',
+      'Noticias': 'bg-justice-100 text-justice-800',
+      'Reportajes': 'bg-error-100 text-error-800',
+      'Opinión': 'bg-primary-100 text-primary-800',
     };
-    return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800';
+    return colors[category as keyof typeof colors] || 'bg-neutral-100 text-neutral-800';
   };
 
   const ArticleCard: React.FC<{ article: typeof newsArticles[0] }> = ({ article }) => (
